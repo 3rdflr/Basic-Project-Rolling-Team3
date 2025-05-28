@@ -27,3 +27,9 @@
  ┣ 📂styles // 전역 css 관리 이하 css 는 module.css 를 이용해서 각 폴더에서 관리.
  ┗ 📂utils // 유틸 함수 관리
 ```
+
+### useScreenSize Hook 사용법
+
+import useScreenSize from '주소'
+
+const screenSize = useScreenSize() // useScreenSize 함수는 window width 에 따라 "xl" "md" "sm" 을 반환
