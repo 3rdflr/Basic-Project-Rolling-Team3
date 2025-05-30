@@ -1,0 +1,22 @@
+.container {
+	width: 36rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.container {
+		width: 76.8rem;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.container {
+		width: 120rem;
+	}
+}
