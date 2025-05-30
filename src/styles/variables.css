@@ -56,6 +56,7 @@
 	--font-bold: 700;
 	--font-regular: 400;
 
+	/* z-index */
 	--zindex-base: 0;
 	--zindex-medium: 555;
 	--zindex-high: 999;
