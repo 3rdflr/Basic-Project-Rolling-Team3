@@ -1,0 +1,73 @@
+/* Font Size */
+
+.font-28-bold {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.font-24-bold {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.font-24-regular {
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.font-20-bold {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.font-20-regular {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.font-18-bold {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.font-18-regular {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.font-16-bold {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.font-16-regular {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.font-15-bold {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.font-15-regular {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.font-14-bold {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.font-14-regular {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.font-12-regular {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* Font Family*/
