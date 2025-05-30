@@ -4,7 +4,7 @@ function TextInput({ type, value, placeholder, onChange, error }) {
 	return (
 		<div>
 			<input
-				className={styles.input}
+				className={styles.container}
 				type={type}
 				value={value}
 				placeholder={placeholder}
