@@ -12,9 +12,9 @@ function TextDropdown({ value, options, onChange, error }) {
 	};
 
 	return (
-		<div className={`${styles.container} ${error ? styles.error : ''}`}>
+		<div className="relative">
 			{/*클래스네임 다시 구분 필요함.*/}
-			<div className={styles.dropdownHeader} onClick={() => setIsOpen(!isOpen)}>
+			<div className={styles.container} onClick={() => setIsOpen(!isOpen)}>
 				{value}
 				<span className={styles.arrow}>
 					{isOpen ? <img src={arrowUp} /> : <img src={arrowDown} />}
