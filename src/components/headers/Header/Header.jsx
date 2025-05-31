@@ -1,8 +1,8 @@
-import Button from '../buttons/Button/Button';
+import Button from '../../buttons/Button/Button';
 
 import { Link } from 'react-router';
 
-import icon from '../../assets/icons/logo.svg';
+import icon from '../../../assets/icons/logo.svg';
 import styles from './Header.module.css';
 
 function Header() {
