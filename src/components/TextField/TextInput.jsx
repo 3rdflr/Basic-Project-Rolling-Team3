@@ -1,4 +1,4 @@
-import styles from './TextField.module.css';
+import styles from './TextInput.module.css';
 
 function TextInput({ type, value, placeholder, onChange, error }) {
 	return (
