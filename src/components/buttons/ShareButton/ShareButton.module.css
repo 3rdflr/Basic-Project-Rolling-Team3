@@ -1,0 +1,42 @@
+@import '/src/styles/variables.css';
+.wrapper {
+	position: relative;
+	width: 36px;
+	height: 32px;
+}
+
+.sharebutton {
+	padding: 5px;
+	border: 1px solid #cccccc;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.sharebutton > svg {
+	width: 100%;
+	height: 100%;
+}
+
+.dropdawn {
+	position: absolute;
+	/* right: 0; */
+	margin-top: 10px;
+	border: 1px solid var(--gray-300);
+	border-radius: 8px;
+	width: 140px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.dropdawn li {
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+	padding: 16px 16px;
+}
+
+.dropdawn li:hover {
+	background-color: var(--gray-200);
+	cursor: pointer;
+}
