@@ -52,11 +52,11 @@ const ShareButton = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.sharebutton} onClick={toggleDropdown}>
+			<button className={styles.sharebutton} onClick={toggleDropdown}>
 				<IoShareOutline />
-			</div>
+			</button>
 			{open && (
-				<ul className={styles.dropdawn}>
+				<ul className={styles.dropdown}>
 					<li onClick={handleKakaoShare}>카카오톡 공유</li>
 					<li onClick={handleCopyUrl}>URL 공유</li>
 				</ul>
