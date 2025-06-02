@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IoShareOutline } from 'react-icons/io5';
 import styles from './ShareButton.module.css';
 import { KAKAO_APP_KEY } from '../../../constants/endPoints';
+import Toast from '../../Toast/Toast';
 
 const ShareButton = () => {
 	const [open, setOpen] = useState(false);
+	const [showToast, setShowToast] = useState(false);
 	const dropdownRef = useRef(null);
 
 	const toggleDropdown = () => setOpen(prev => !prev);
@@ -39,6 +41,15 @@ const ShareButton = () => {
 		}
 	};
 
+	const handleCopyUrl = async () => {
+		try {
+			await navigator.clipboard.writeText(window.location.href);
+			setShowToast(true);
+		} catch (err) {
+			console.error('URL 복사 실패:', err);
+		}
+	};
+
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.sharebutton} onClick={toggleDropdown}>
@@ -47,9 +58,10 @@ const ShareButton = () => {
 			{open && (
 				<ul className={styles.dropdawn}>
 					<li onClick={handleKakaoShare}>카카오톡 공유</li>
-					<li>URL 공유</li>
+					<li onClick={handleCopyUrl}>URL 공유</li>
 				</ul>
 			)}
+			{showToast && <Toast message="URL이 복사되었습니다." onClose={() => setShowToast(false)} />}
 		</div>
 	);
 };
