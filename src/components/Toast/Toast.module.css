@@ -1,0 +1,42 @@
+.toast {
+	box-sizing: border-box;
+	width: 320px;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	bottom: 30px;
+	background-color: var(--black);
+	opacity: 0.8;
+	color: white;
+	padding: 12px 30px;
+	border-radius: 8px;
+	font-size: var(--font-16);
+	z-index: var(--zindex-high);
+	animation: fadein 0.3s;
+}
+
+.warpper {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.completedIcon {
+	width: 20px;
+	height: 20px;
+}
+
+.closeIcon {
+	cursor: pointer;
+}
+
+@keyframes fadein {
+	from {
+		transform: translateY(20px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
