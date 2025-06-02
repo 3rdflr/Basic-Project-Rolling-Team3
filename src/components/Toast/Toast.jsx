@@ -14,7 +14,7 @@ const Toast = ({ message, duration = 5000, onClose }) => {
 
 	return (
 		<div className={styles.toast}>
-			<div className={styles.warpper}>
+			<div className={styles.wrapper}>
 				<img src={CompletedIcon} alt="완료 아이콘" className={styles.completedIcon} />
 				{message}
 			</div>

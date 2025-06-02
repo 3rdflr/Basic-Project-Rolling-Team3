@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TextInput from '../../components/TextField/TextInput';
 import TextDropdown from '../../components/TextField/TextDropdown';
+import BackgroundSelector from '../../components/buttons/BackgroundSelector/BackgroundSelector';
 
 function WritePaper() {
 	const [text, setText] = useState('');
@@ -15,6 +16,7 @@ function WritePaper() {
 				placeholder="내용을 입력해주세요"
 			/>
 			<TextDropdown options={options} value={selectedOption} onChange={setSelectedOption} />
+			<BackgroundSelector />
 		</>
 	);
 }

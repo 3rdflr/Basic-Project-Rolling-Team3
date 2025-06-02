@@ -1,15 +1,14 @@
-@import '/src/styles/variables.css';
 .wrapper {
 	position: relative;
-	width: 36px;
-	height: 32px;
 }
 
 .sharebutton {
-	padding: 5px;
-	border: 1px solid #cccccc;
+	padding: 6px 16px;
+	border: 1px solid var(--gray-300);
 	border-radius: 6px;
 	cursor: pointer;
+	width: 24px;
+	height: 24px;
 }
 
 .sharebutton > svg {
@@ -17,7 +16,7 @@
 	height: 100%;
 }
 
-.dropdawn {
+.dropdown {
 	position: absolute;
 	/* right: 0; */
 	margin-top: 10px;
@@ -30,13 +29,13 @@
 	justify-content: center;
 }
 
-.dropdawn li {
+.dropdown li {
 	font-size: var(--font-16);
 	font-weight: var(--font-regular);
 	padding: 16px 16px;
 }
 
-.dropdawn li:hover {
+.dropdown li:hover {
 	background-color: var(--gray-200);
 	cursor: pointer;
 }

@@ -17,7 +17,7 @@
 	animation: fadein 0.3s;
 }
 
-.warpper {
+.wrapper {
 	display: flex;
 	align-items: center;
 	gap: 12px;
@@ -35,8 +35,10 @@
 @keyframes fadein {
 	from {
 		transform: translateY(20px);
+		opacity: 0;
 	}
 	to {
 		transform: translateY(0);
+		opacity: 0.8;
 	}
 }
