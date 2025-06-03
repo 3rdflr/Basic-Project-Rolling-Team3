@@ -1,7 +1,7 @@
 import mainImg_01 from '../../assets/images/mainImg_01.svg';
 import mainImg_02 from '../../assets/images/mainImg_02.svg';
 
-import Header from '../../components/Header/Header';
+import Header from '../../components/headers/Header/Header';
 import Container from '../../components/Container/Container';
 import TextContainer from '../../components/Container/TextContainer';
 import Button from '../../components/buttons/Button/Button';
@@ -29,7 +29,7 @@ function LandingPage() {
 			<Container>
 				<TextContainer content={content_1} />
 				<TextContainer content={content_2} isReverse={true} />
-				<Button style={'primary'} linkTo={'/list'} text={'구경해보기'} />
+				<Button style={'primary'} linkTo={'/additem'} text={'구경해보기'} />
 			</Container>
 		</>
 	);
