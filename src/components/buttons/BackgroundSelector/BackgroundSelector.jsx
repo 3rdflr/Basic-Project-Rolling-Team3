@@ -27,7 +27,7 @@ function BackgroundSelector() {
 			</div>
 			{selectedTab === 'color' && (
 				<div className={styles.colorpalette}>
-					{['orange', 'purple', 'blue', 'green'].map((color, idx) => (
+					{['beige', 'purple', 'blue', 'green'].map((color, idx) => (
 						<div
 							key={idx}
 							className={`${styles.square} ${styles[color]} ${
