@@ -1,0 +1,41 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 2.8rem;
+}
+
+.profileImage {
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid var(--white);
+	position: relative;
+}
+
+.profileImage:nth-child(2) {
+	margin-left: -15px;
+	z-index: 2;
+}
+
+.profileImage:nth-child(3) {
+	margin-left: -15px;
+	z-index: 3;
+}
+
+.remainingCount {
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 50%;
+	background-color: var(--white);
+	color: var(--gray-500);
+	font-size: var(--font-12);
+	font-weight: var(--font-regular);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: -15px;
+	z-index: 4;
+	border: 2px solid var(--white);
+}
