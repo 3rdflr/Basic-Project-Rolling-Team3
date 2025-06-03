@@ -1,0 +1,35 @@
+.지인 {
+	background-color: var(--beige-100);
+	color: var(--beige-600);
+}
+.동료 {
+	background-color: var(--purple-100);
+	color: var(--purple-600);
+}
+.가족 {
+	background-color: var(--green-100);
+	color: var(--green-600);
+}
+.친구 {
+	background-color: var(--blue-100);
+	color: var(--blue-600);
+}
+
+.emojiBadge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 5.5rem;
+	height: 3.2rem;
+	border-radius: 3.2rem;
+	gap: 0.2rem;
+	background-color: rgba(0, 0, 0, 0.54);
+}
+.emoji {
+	font-size: 2rem;
+}
+.count {
+	font-size: var(--font-16);
+	font-weight: 400;
+	color: var(--white);
+}
