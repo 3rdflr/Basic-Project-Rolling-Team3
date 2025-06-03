@@ -1,10 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import LandingPage from './pages/LandingPage/LandingPage';
+import ListPage from './pages/ListPage/ListPage';
 import WritePaper from './pages/WritePaper/WritePaper';
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+				<Route path="/" element={<LandingPage />} />
+				<Route path="/additem" element={<ListPage />} />
 				<Route path="/post/:id/message" element={<WritePaper />} />
 			</Routes>
 		</BrowserRouter>
