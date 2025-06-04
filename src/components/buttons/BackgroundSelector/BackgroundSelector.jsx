@@ -33,7 +33,10 @@ function BackgroundSelector() {
 							className={`${styles.square} ${styles[color]} ${
 								selectedColor === idx ? styles.selected : ''
 							}`}
-							onClick={() => setSelectedColor(idx)}
+							onClick={() => {
+								setSelectedColor(idx);
+								setSelectedImage(null);
+							}}
 						>
 							{selectedColor === idx && (
 								<img src={checkIcon} alt="선택됨" className={styles.checkIcon} />
@@ -50,7 +53,10 @@ function BackgroundSelector() {
 						<div
 							key={idx}
 							className={`${styles.imageWrapper} ${selectedImage === idx ? styles.selected : ''}`}
-							onClick={() => setSelectedImage(idx)}
+							onClick={() => {
+								setSelectedImage(idx);
+								setSelectedColor(null);
+							}}
 						>
 							<img className={styles.image} src={url} alt={`Image ${idx}`} />
 							{selectedImage === idx && (
