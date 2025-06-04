@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://rolling-api.vercel.app';
-export const TEAM = '1-7';
+export const TEAM = '16-3';
 export const KAKAO_APP_KEY = '813022e1dab181dce46278fb6dc7708f';
 
 export const getBackgroundImg = () => '/background-images/';
