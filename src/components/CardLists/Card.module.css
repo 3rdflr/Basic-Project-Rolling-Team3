@@ -1,0 +1,95 @@
+.card {
+	width: 20.8rem;
+	height: 23.2rem;
+	border-radius: 0.8rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+		var(--card-background-image);
+	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: flex-start;
+	padding: 3rem 2.4rem;
+}
+
+.card.noImage {
+	background-image: none;
+	background-color: var(--card-background-color);
+}
+
+.cardText {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.name {
+	font-size: var(--font-18);
+	font-weight: var(--font-bold);
+	color: var(--gray-900);
+}
+
+.nameInherit {
+	font-size: var(--font-18);
+	font-weight: var(--font-bold);
+	color: var(--white);
+}
+.countText {
+	font-size: var(--font-14);
+	font-weight: var(--font-regular);
+	color: var(--gray-900);
+}
+
+.countTextInherit {
+	font-size: var(--font-14);
+	font-weight: var(--font-regular);
+	color: var(--white);
+}
+
+.count {
+	font-weight: var(--font-bold);
+}
+
+.badge {
+	width: 16rem;
+	display: flex;
+	justify-content: flex-start;
+	align-self: center;
+	gap: 0.4rem;
+	margin-top: 3.3rem;
+	padding-top: 1.6rem;
+	border-top: 0.1rem solid rgba(24, 24, 24, 0.12);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.card {
+		width: 27.5rem;
+		height: 26rem;
+	}
+	.name {
+		font-size: var(--font-24);
+	}
+	.nameInherit {
+		font-size: var(--font-24);
+	}
+	.countText {
+		font-size: var(--font-16);
+	}
+	.countTextInherit {
+		font-size: var(--font-16);
+	}
+	.badge {
+		width: 21rem;
+		margin-top: 4.8rem;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.card {
+		width: 27.5rem;
+		height: 26rem;
+	}
+}

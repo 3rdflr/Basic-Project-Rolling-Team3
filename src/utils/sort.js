@@ -1,4 +1,4 @@
-export const sortResent = data => {
+export const sortRecent = data => {
 	const sortedData = data
 		.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 		.slice(0, 10);
