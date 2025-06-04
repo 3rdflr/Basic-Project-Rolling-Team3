@@ -61,6 +61,10 @@ const recipientsAPI = {
 		const response = await api.post(getRecipientsMessage(recipientId), data);
 		return response.data;
 	},
+	deleteRecipientsMessage: async id => {
+		const response = await api.delete(getMessage(id));
+		return response.data;
+	},
 	// 특정 롤링 페이퍼의 이모티콘 가져오기
 	getRecipientsReactions: async id => {
 		const response = await api.get(getRecipientReactions(id));
@@ -69,14 +73,6 @@ const recipientsAPI = {
 	// 특정 롤링 페이퍼에 리액션 추가 (POST)
 	createRecipientsReaction: async (recipientId, data) => {
 		const response = await api.post(getRecipientReactions(recipientId), data);
-		return response.data;
-	},
-};
-
-const messagesAPI = {
-	// 특정 메시지 삭제
-	deleteRecipientsMessage: async id => {
-		const response = await api.delete(getMessage(id));
 		return response.data;
 	},
 };
@@ -94,4 +90,4 @@ const imagesAPI = {
 	},
 };
 
-export { recipientsAPI, messagesAPI, imagesAPI };
+export { recipientsAPI, imagesAPI };
