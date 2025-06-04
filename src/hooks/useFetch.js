@@ -1,28 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
-function useFetch(fetchFunction) {
-	const [data, setData] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
+function useFetch(asyncFunction) {
+	const [isLoading, setisLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			setIsLoading(true);
+	const wrappedFunction = useCallback(
+		async (...args) => {
+			setisLoading(true);
 			setError(null);
 			try {
-				const result = await fetchFunction();
-				setData(result);
-			} catch (err) {
-				setError(err);
-				console.error('useFetch Error:', err);
+				const result = await asyncFunction(...args);
+				return result;
+			} catch (error) {
+				setError(error);
+				throw error;
 			} finally {
-				setIsLoading(false);
+				setisLoading(false);
 			}
-		};
-		fetchData();
-	}, [fetchFunction]);
+		},
+		[asyncFunction]
+	);
 
-	return { data, isLoading, error };
+	return [isLoading, error, wrappedFunction];
 }
 
 export default useFetch;

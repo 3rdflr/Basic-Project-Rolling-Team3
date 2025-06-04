@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { useMemo, useCallback } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { sortHot, sortRecent } from '../../utils/sort';
 
 import useFetch from '../../hooks/useFetch.js';
@@ -11,27 +11,36 @@ import Button from '../../components/buttons/Button/Button';
 import styles from './ListPage.module.css';
 
 function ListPage() {
-	const fetchRecipientsData = useCallback(async () => {
-		return recipientsAPI.getAllRecipient({ limit: 100, offset: 0 });
-	}, []);
+	const [recipients, setRecipients] = useState([]);
+	const [isLoading, error, fetchAllRecipients] = useFetch(recipientsAPI.getAllRecipient);
 
-	const { data, isLoading, error } = useFetch(fetchRecipientsData);
+	useEffect(() => {
+		fetchAllRecipients({ limit: 100, offset: 0 })
+			.then(data => {
+				if (data) {
+					setRecipients(data);
+				}
+			})
+			.catch(err => {
+				console.error('롤링 페이퍼 목록 로드 실패:', err);
+			});
+	}, [fetchAllRecipients]);
 
 	const hottest = useMemo(() => {
-		if (!Array.isArray(data)) {
+		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortHot([...data]);
-	}, [data]);
+		return sortHot([...recipients]);
+	}, [recipients]);
 
 	const resent = useMemo(() => {
-		if (!Array.isArray(data)) {
+		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortRecent([...data]);
-	}, [data]);
+		return sortRecent([...recipients]);
+	}, [recipients]);
 
-	console.log('원본 카드 데이터:', data);
+	console.log('원본 카드 데이터:', recipients);
 	console.log('인기순 카드 데이터:', hottest);
 	console.log('최신순 카드 데이터:', resent);
 
@@ -43,7 +52,7 @@ function ListPage() {
 		return <div>오류 발생: {error.message}</div>;
 	}
 
-	if (!Array.isArray(data) || data.length === 0) {
+	if (!Array.isArray(recipients) || recipients.length === 0) {
 		return <div>표시할 카드 데이터가 없습니다.</div>;
 	}
 
