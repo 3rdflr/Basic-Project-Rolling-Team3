@@ -1,7 +1,9 @@
 import { Helmet } from 'react-helmet';
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { sortHot, sortRecent } from '../../utils/sort';
-import useGetData from '../../hooks/useGetData';
+
+import useFetch from '../../hooks/useFetch.js';
+import { recipientsAPI } from '../../api/index.js';
 import Header from '../../components/headers/Header/Header';
 import CardLists from '../../components/CardLists/CardLists';
 import Button from '../../components/buttons/Button/Button';
@@ -9,7 +11,12 @@ import Button from '../../components/buttons/Button/Button';
 import styles from './ListPage.module.css';
 
 function ListPage() {
-	const { data, isLoading, error } = useGetData('RECIPIENTS', null, { limit: 100, offset: 0 });
+	const fetchRecipientsData = useCallback(async () => {
+		return recipientsAPI.getAllRecipient({ limit: 100, offset: 0 });
+	}, []);
+
+	const { data, isLoading, error } = useFetch(fetchRecipientsData);
+
 	const hottest = useMemo(() => {
 		if (!Array.isArray(data)) {
 			return [];

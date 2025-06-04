@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import useGetData from '../../../hooks/useGetData';
+// import useGetData from '../../../hooks/useGetData';
 import styles from './BackgroundSelector.module.css';
 import checkIcon from '../../../assets/icons/check.png';
 
 function BackgroundSelector() {
 	const [selectedTab, setSelectedTab] = useState('color');
-	const { data: imageData, loading, error } = useGetData('BACKGROUND_IMGS', 'GET');
+	// const { data: imageData, loading, error } = useGetData('BACKGROUND_IMGS', 'GET');
 	const [selectedColor, setSelectedColor] = useState(null);
 	const [selectedImage, setSelectedImage] = useState(null);
 
