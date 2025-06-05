@@ -18,9 +18,18 @@ function WritePaper() {
 		backgroundColor: 'beige',
 		backgroundImageURL: '',
 	});
+
+	const [nameError, setNameError] = useState(false);
+
+	const [isLoading, isError, createRecipient] = useFetch(recipientsAPI.createRecipients);
 	const handleSubmit = async e => {
 		e.preventDefault();
 
+		if (!name.trim()) {
+			setNameError(true);
+			return;
+		}
+		setNameError(false);
 		const formData = {
 			team: { TEAM },
 			name: name.trim(),
