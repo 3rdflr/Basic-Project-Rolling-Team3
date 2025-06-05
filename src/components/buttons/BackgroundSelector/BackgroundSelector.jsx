@@ -69,7 +69,9 @@ function BackgroundSelector({ onSelect, selectedTab, setSelectedTab }) {
 					{imageData.map((url, idx) => (
 						<div
 							key={idx}
-							className={`${styles.imageWrapper} ${selectedImage === idx ? styles.selected : ''}`}
+							className={`${styles.imageWrapper} ${
+								selectedImage === idx ? styles.selected : styles.notselected
+							}`}
 							onClick={() => {
 								setSelectedImage(idx);
 								setSelectedColor(null);

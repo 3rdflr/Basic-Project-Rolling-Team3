@@ -29,7 +29,11 @@ function TextDropdown({ value, options, onChange, error }) {
 			<div className={styles.container} onClick={() => setIsOpen(!isOpen)}>
 				<p className={styles.value}>{value}</p>
 				<span className={styles.arrow}>
-					{isOpen ? <img src={arrowUp} /> : <img src={arrowDown} />}
+					{isOpen ? (
+						<img className={styles.image} src={arrowUp} />
+					) : (
+						<img className={styles.image} src={arrowDown} />
+					)}
 				</span>
 			</div>
 			{isOpen && (

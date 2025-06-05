@@ -1,18 +1,18 @@
-img {
-	width: 16px;
-	height: 16px;
+.image {
+	width: 1.6rem;
+	height: 1.6rem;
 }
 
 .wrapper {
-	width: 320px;
+	width: 32rem;
 }
 
 .container {
-	width: 320px;
-	height: 50px;
-	border: 1px solid var(--gray-300);
-	border-radius: 8px;
-	padding: 12px 16px;
+	width: 32rem;
+	height: 5rem;
+	border: 0.1rem solid var(--gray-300);
+	border-radius: 0.8rem;
+	padding: 1.2rem 1.6rem;
 	cursor: pointer;
 	font-size: var(--font-16);
 	font-weight: var(--font-regular);
@@ -22,35 +22,34 @@ img {
 }
 
 .container:hover {
-	border: 1px solid var(--gray-500);
+	border: 0.1rem solid var(--gray-500);
 }
 
 .value {
 	position: absolute;
-	top: 15px;
+	top: 1.5rem;
 	color: var(--gray-900);
 }
 
 .arrow {
 	position: absolute;
-	top: 15px;
-	right: 18px;
+	top: 1.5rem;
+	right: 1.8rem;
 }
 
 .dropdownList {
-	width: 320px;
-	border: 1px solid var(--gray-300);
-	border-radius: 8px;
+	width: 32rem;
+	border: 0.1rem solid var(--gray-300);
+	border-radius: 0.8rem;
 	cursor: pointer;
 	font-size: var(--font-16);
 	font-weight: var(--font-regular);
-	padding: 12px 16px;
-	/*box-shadow: 5px;*/
+	padding: 1.2rem 1.6rem;
 }
 
 .dropdownOption {
 	font-size: var(--font-16);
-	line-height: 26px;
+	line-height: 2.6rem;
 	color: var(--gray-900);
 }
 
