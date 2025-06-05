@@ -1,0 +1,21 @@
+.img {
+	top: 23rem;
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.img {
+		top: 25rem;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.img {
+		top: 35rem;
+	}
+}
