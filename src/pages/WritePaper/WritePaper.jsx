@@ -12,7 +12,7 @@ function WritePaper() {
 	const [name, setName] = useState('');
 	const [selectedTab, setSelectedTab] = useState('color');
 	const [selectedValue, setSelectedValue] = useState({
-		backgroundColor: 'beige',
+		backgroundColor: 'beige', // 오류 막기 위해 넣어둠 협의 후 변경해야함.
 		backgroundImageURL: '',
 	});
 	const [nameError, setNameError] = useState(false);
