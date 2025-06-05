@@ -8,7 +8,7 @@ export default function Keyframes() {
 			<motion.div
 				className={styles.img}
 				initial={{ scale: 0 }}
-				animate={{ scale: 1.25 }}
+				animate={{ scale: 1 }}
 				transition={{
 					duration: 1,
 					ease: 'easeInOut',
