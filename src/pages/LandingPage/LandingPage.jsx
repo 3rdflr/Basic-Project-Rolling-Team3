@@ -7,18 +7,18 @@ import TextContainer from '../../components/Container/TextContainer';
 import Button from '../../components/buttons/Button/Button';
 
 const content_1 = {
-	point: 'Point. 01',
+	header: 'Point. 01',
 	title1: '누구나 손쉽게, 온라인 ',
 	title2: '롤링 페이퍼를 만들 수 있어요',
-	span: '로그인 없이 자유롭게 만들어요.',
+	description: '로그인 없이 자유롭게 만들어요.',
 	img: mainImg_01,
 };
 
 const content_2 = {
-	point: 'Point. 02',
+	header: 'Point. 02',
 	title1: '서로에게 이모지로 감정을 ',
 	title2: '표현해보세요',
-	span: '롤링 페이퍼에 이모지를 추가할 수 있어요.',
+	description: '롤링 페이퍼에 이모지를 추가할 수 있어요.',
 	img: mainImg_02,
 };
 
