@@ -7,26 +7,20 @@ import TextInput from '../../components/TextField/TextInput';
 import BackgroundSelector from '../../components/buttons/BackgroundSelector/BackgroundSelector';
 import Button from '../../components/buttons/Button/Button';
 import styles from './WritePaper.module.css';
+import useFetch from '../../hooks/useFetch';
+import { recipientsAPI } from '../../api/index.js';
+import { TEAM } from '../../constants/endPoints';
 
 function WritePaper() {
 	const [name, setName] = useState('');
 	const [selectedTab, setSelectedTab] = useState('color');
 	const [selectedValue, setSelectedValue] = useState({
-		backgroundColor: 'beige', // 오류 막기 위해 넣어둠 협의 후 변경해야함.
+		backgroundColor: 'beige',
 		backgroundImageURL: '',
 	});
-	const [nameError, setNameError] = useState(false);
-
-	const [isLoading, isError, createRecipient] = useFetch(recipientsAPI.createRecipients);
-
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		if (!name.trim()) {
-			setNameError(true);
-			return;
-		}
-		setNameError(false);
 		const formData = {
 			team: { TEAM },
 			name: name.trim(),
