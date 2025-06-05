@@ -21,10 +21,23 @@
 	bottom: 2.4rem;
 	color: var(--white);
 	font-size: var(--font-18);
+	font-weight: var(--font-bold);
 }
 
 .primary:hover {
 	background-color: var(--purple-700);
+}
+
+.disabled {
+	background-color: var(--gray-300);
+	font-weight: var(--font-bold);
+	cursor: not-allowed;
+}
+
+.disabled:hover {
+	background-color: var(--gray-300);
+	font-weight: var(--font-bold);
+	cursor: not-allowed;
 }
 
 /* Tablet */
