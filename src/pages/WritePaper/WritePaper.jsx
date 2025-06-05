@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
+import useFetch from '../../hooks/useFetch';
+import { recipientsAPI } from '../../api/index.js';
+import { TEAM } from '../../constants/endPoints';
 // import Header from '../../components/headers/Header/Header';
 import TextInput from '../../components/TextField/TextInput';
 import BackgroundSelector from '../../components/buttons/BackgroundSelector/BackgroundSelector';
@@ -13,43 +15,41 @@ function WritePaper() {
 		backgroundColor: 'beige',
 		backgroundImageURL: '',
 	});
+	const [nameError, setNameError] = useState(false);
+
+	const [isLoading, isError, createRecipient] = useFetch(recipientsAPI.createRecipients);
 
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		const generationTeam = '16-3';
+		if (!name.trim()) {
+			setNameError(true);
+			return;
+		}
+		setNameError(false);
 		const formData = {
-			team: '16-3',
+			team: { TEAM },
 			name: name.trim(),
 		};
-		if (selectedValue.backgroundImageURL) {
-			formData.backgroundImageURL = selectedValue.backgroundImageURL;
-			formData.backgroundColor = null;
-		} else if (selectedValue.backgroundColor) {
+		if (selectedTab === 'color') {
+			// 1️ 컬러 선택 상태
 			formData.backgroundColor = selectedValue.backgroundColor || 'beige';
 			formData.backgroundImageURL = null;
-		} else {
-			if (selectedTab === 'image') {
+		} else if (selectedTab === 'image') {
+			// 2️ 이미지 선택 상태
+			formData.backgroundColor = 'beige';
+			if (selectedValue.backgroundImageURL) {
+				// 2-1 이미지 선택된 경우
+				formData.backgroundImageURL = selectedValue.backgroundImageURL;
+			} else {
+				// 2-2 이미지 선택 안 된 경우
 				formData.backgroundImageURL = 'https://picsum.photos/id/683/3840/2160';
-				formData.backgroundColor = null;
-			} else if (selectedTab === 'color') {
-				formData.backgroundColor = 'beige';
-				formData.backgroundImageURL = null;
 			}
 		}
 
-		// if (selectedTab === 'image') {
-		// 	formData.backgroundColor = null;
-		// } else if (selectedTab === 'color') {
-		// 	formData.backgroundImageURL = null;
-		// }
-
 		try {
-			const response = await axios.post(
-				`https://rolling-api.vercel.app/${generationTeam}/recipients/`,
-				formData
-			);
-			console.log('성공:', response.data);
+			const response = await createRecipient(formData);
+			console.log('성공:', response);
 		} catch (error) {
 			console.error('에러:', error);
 		}
@@ -58,30 +58,46 @@ function WritePaper() {
 	};
 
 	return (
-		<>
-			{/* <Header isForm={false} /> */}
+		<div className={styles.container}>
+			{/* <Header isForm={true} /> */}
 			<form onSubmit={handleSubmit} className={styles.form}>
-				<h2 className={styles.h2}>To</h2>
-				<TextInput
-					className={styles.input}
-					value={name}
-					onChange={e => setName(e.target.value)}
-					placeholder="받는 사람 이름을 입력해 주세요"
-				/>
-				<h2 className={styles.h2}>배경화면을 선택해 주세요.</h2>
-				<p className={styles.p}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
-				<div>
+				<div className={styles.inputarea}>
+					<h2 className={styles.h2}>To</h2>
+					<TextInput
+						className={styles.input}
+						value={name}
+						onChange={e => {
+							setName(e.target.value);
+							if (nameError && e.target.value.trim()) {
+								setNameError(false);
+							}
+						}}
+						onBlur={e => {
+							if (!e.target.value.trim()) {
+								setNameError(true);
+							}
+						}}
+						placeholder="받는 사람 이름을 입력해 주세요"
+						error={nameError}
+						errorMessage="1~40자 사이 이름을 입력해주세요"
+					/>
+				</div>
+				<div className={styles.backgroundselectortext}>
+					<h2 className={styles.h2}>배경화면을 선택해 주세요.</h2>
+					<p className={styles.p}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
+				</div>
+				<div className={styles.backgroundselector}>
 					<BackgroundSelector
 						selectedTab={selectedTab}
 						setSelectedTab={setSelectedTab}
 						onSelect={selectedValue => setSelectedValue(selectedValue)}
 					/>
 				</div>
-				<div>
-					<Button type="submit" style="primary" text="생성하기" />
+				<div className={styles.button}>
+					<Button type="submit" style="primary" text="생성하기" disabled={!name.trim()} />
 				</div>
 			</form>
-		</>
+		</div>
 	);
 }
 
