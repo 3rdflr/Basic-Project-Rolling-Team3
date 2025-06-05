@@ -29,7 +29,7 @@ function LandingPage() {
 			<Container>
 				<TextContainer content={content_1} />
 				<TextContainer content={content_2} isReverse={true} />
-				<Button style={'primary'} linkTo={'/additem'} text={'구경해보기'} />
+				<Button classStyle={'primary'} linkTo={'/additem'} children={'구경해보기'} />
 			</Container>
 		</>
 	);
