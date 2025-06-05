@@ -30,14 +30,14 @@ function ListPage() {
 		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortHot([...recipients]);
+		return sortHot([...recipients]).slice(0, 10);
 	}, [recipients]);
 
 	const resent = useMemo(() => {
 		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortRecent([...recipients]);
+		return sortRecent([...recipients]).slice(0, 10);
 	}, [recipients]);
 
 	console.log('원본 카드 데이터:', recipients);
