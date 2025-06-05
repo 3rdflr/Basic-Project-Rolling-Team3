@@ -7,6 +7,7 @@ import { recipientsAPI } from '../../api/index.js';
 import Header from '../../components/headers/Header/Header';
 import CardLists from '../../components/CardLists/CardLists';
 import Button from '../../components/buttons/Button/Button';
+import Keyframes from '../../components/animation/logoAnimation.jsx';
 
 import styles from './ListPage.module.css';
 
@@ -30,14 +31,14 @@ function ListPage() {
 		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortHot([...recipients]);
+		return sortHot([...recipients]).slice(0, 10);
 	}, [recipients]);
 
 	const resent = useMemo(() => {
 		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortRecent([...recipients]);
+		return sortRecent([...recipients]).slice(0, 10);
 	}, [recipients]);
 
 	console.log('원본 카드 데이터:', recipients);
@@ -45,7 +46,13 @@ function ListPage() {
 	console.log('최신순 카드 데이터:', resent);
 
 	if (isLoading) {
-		return <div>카드 목록을 불러오는 중입니다...</div>;
+		return (
+			<>
+				<div className={styles.container}>
+					<Keyframes />
+				</div>
+			</>
+		);
 	}
 
 	if (error) {
@@ -67,7 +74,7 @@ function ListPage() {
 				<CardLists cards={hottest} />
 				<p className={styles.text}>최근에 만든 롤링 페이퍼 10 ⭐️</p>
 				<CardLists cards={resent} />
-				<Button style={'primary'} linkTo={'/post'} text={'나도 만들어보기'} />
+				<Button classStyle={'primary'} linkTo={'/post'} children={'나도 만들어보기'} />
 			</div>
 		</>
 	);
