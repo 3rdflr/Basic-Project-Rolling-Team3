@@ -20,7 +20,7 @@
 	font-weight: var(--font-bold);
 	margin: 2.4rem;
 }
-.point {
+.header {
 	background-color: var(--purple-600);
 	color: var(--white);
 	font-size: var(--font-14);
@@ -35,7 +35,7 @@
 	margin-top: 1.6rem;
 }
 
-.span {
+.description {
 	color: var(--gray-500);
 	font-size: var(--font-15);
 	font-weight: var(--font-regular);
@@ -55,7 +55,7 @@
 		font-size: var(--font-24);
 		line-height: 3.6rem;
 	}
-	.span {
+	.description {
 		font-size: var(--font-18);
 		line-height: 2.8rem;
 	}
