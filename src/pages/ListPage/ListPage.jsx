@@ -67,7 +67,7 @@ function ListPage() {
 				<CardLists cards={hottest} />
 				<p className={styles.text}>최근에 만든 롤링 페이퍼 10 ⭐️</p>
 				<CardLists cards={resent} />
-				<Button style={'primary'} linkTo={'/post'} text={'나도 만들어보기'} />
+				<Button classStyle={'primary'} linkTo={'/post'} children={'나도 만들어보기'} />
 			</div>
 		</>
 	);
