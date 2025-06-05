@@ -30,7 +30,13 @@
 .disabled {
 	background-color: var(--gray-300);
 	font-weight: var(--font-bold);
-	cursor: none;
+	cursor: not-allowed;
+}
+
+.disabled:hover {
+	background-color: var(--gray-300);
+	font-weight: var(--font-bold);
+	cursor: not-allowed;
 }
 
 /* Tablet */
