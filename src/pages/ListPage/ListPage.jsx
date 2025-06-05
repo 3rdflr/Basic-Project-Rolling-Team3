@@ -7,6 +7,7 @@ import { recipientsAPI } from '../../api/index.js';
 import Header from '../../components/headers/Header/Header';
 import CardLists from '../../components/CardLists/CardLists';
 import Button from '../../components/buttons/Button/Button';
+import Keyframes from '../../components/animation/logoAnimation.jsx';
 
 import styles from './ListPage.module.css';
 
@@ -45,7 +46,13 @@ function ListPage() {
 	console.log('최신순 카드 데이터:', resent);
 
 	if (isLoading) {
-		return <div>카드 목록을 불러오는 중입니다...</div>;
+		return (
+			<>
+				<div className={styles.container}>
+					<Keyframes />
+				</div>
+			</>
+		);
 	}
 
 	if (error) {
