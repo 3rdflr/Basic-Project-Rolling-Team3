@@ -1,21 +1,41 @@
 .card {
 	width: 20.8rem;
 	height: 23.2rem;
-	border-radius: 0.8rem;
+	border: 0.1rem solid rgba(0, 0, 0, 0.1);
+	border-radius: 1.6rem;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
 		var(--card-background-image);
-	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+	background-color: var(--card-background-color);
 	display: flex;
 	justify-content: flex-start;
 	padding: 3rem 2.4rem;
 }
 
-.card.noImage {
-	background-image: none;
-	background-color: var(--card-background-color);
+.card.beige {
+	background-image: url('../../assets/images/beige.svg');
+	background-size: auto;
+	background-position: right bottom;
+}
+
+.card.blue {
+	background-image: url('../../assets/images/blue.svg');
+	background-size: auto;
+	background-position: right bottom;
+}
+
+.card.green {
+	background-image: url('../../assets/images/green.svg');
+	background-size: auto;
+	background-position: right bottom;
+}
+
+.card.purple {
+	background-image: url('../../assets/images/purple.svg');
+	background-size: auto;
+	background-position: right bottom;
 }
 
 .cardText {

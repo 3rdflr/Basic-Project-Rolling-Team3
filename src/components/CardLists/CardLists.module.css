@@ -1,4 +1,5 @@
 .carouselWrapper {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -22,7 +23,7 @@
 .navButton {
 	flex-shrink: 0;
 	margin: 0 10px;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.9);
 	border: 0.1rem solid var(--gray-300);
 	border-radius: 50%;
 	width: 4rem;
@@ -33,13 +34,13 @@
 	align-items: center;
 	cursor: pointer;
 	z-index: 10;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.08);
 }
 .prevButton {
-	left: 23rem;
+	left: -1rem;
 }
 .nextButton {
-	right: 23rem;
+	right: -1rem;
 }
 
 .navButton:hover {

@@ -10,6 +10,7 @@ import Button from '../../components/buttons/Button/Button';
 import Keyframes from '../../components/animation/logoAnimation.jsx';
 
 import styles from './ListPage.module.css';
+import LinkButton from '../../components/buttons/Button/LinkButton.jsx';
 
 function ListPage() {
 	const [recipients, setRecipients] = useState([]);
@@ -48,6 +49,9 @@ function ListPage() {
 	if (isLoading) {
 		return (
 			<>
+				<Helmet>
+					<title>Rolling | List</title>
+				</Helmet>
 				<div className={styles.container}>
 					<Keyframes />
 				</div>
@@ -74,7 +78,7 @@ function ListPage() {
 				<CardLists cards={hottest} />
 				<p className={styles.text}>최근에 만든 롤링 페이퍼 10 ⭐️</p>
 				<CardLists cards={resent} />
-				<Button classStyle={'primary'} linkTo={'/post'} children={'나도 만들어보기'} />
+				<LinkButton classStyle={'primary'} linkTo={'/post'} children={'나도 만들어보기'} />
 			</div>
 		</>
 	);

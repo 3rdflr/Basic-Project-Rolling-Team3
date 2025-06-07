@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import useFetch from '../../hooks/useFetch';
-import { recipientsAPI } from '../../api/index.js';
-import { TEAM } from '../../constants/endPoints';
+
 // import Header from '../../components/headers/Header/Header';
 import TextInput from '../../components/TextField/TextInput';
 import BackgroundSelector from '../../components/buttons/BackgroundSelector/BackgroundSelector';

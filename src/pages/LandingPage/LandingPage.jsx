@@ -1,10 +1,13 @@
 import mainImg_01 from '../../assets/images/mainImg_01.svg';
 import mainImg_02 from '../../assets/images/mainImg_02.svg';
 
+import KeyFrames from '../../components/animation/logoAnimation.jsx';
 import Header from '../../components/headers/Header/Header';
 import Container from '../../components/Container/Container';
 import TextContainer from '../../components/Container/TextContainer';
-import Button from '../../components/buttons/Button/Button';
+
+import LinkButton from '../../components/buttons/Button/LinkButton';
+import { useEffect, useState } from 'react';
 
 const content_1 = {
 	header: 'Point. 01',
@@ -23,16 +26,36 @@ const content_2 = {
 };
 
 function LandingPage() {
-	return (
-		<>
-			<Header />
-			<Container>
-				<TextContainer content={content_1} />
-				<TextContainer content={content_2} isReverse={true} />
-				<Button classStyle={'primary'} linkTo={'/additem'} children={'구경해보기'} />
-			</Container>
-		</>
-	);
+	const [isLoading, setIsLoading] = useState(true);
+
+	useEffect(() => {
+		const fakeTimer = setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
+
+		return () => clearTimeout(fakeTimer);
+	}, []);
+
+	if (isLoading) {
+		return (
+			<div>
+				<Container>
+					<KeyFrames />
+				</Container>
+			</div>
+		);
+	} else {
+		return (
+			<>
+				<Header />
+				<Container>
+					<TextContainer content={content_1} />
+					<TextContainer content={content_2} isReverse={true} />
+					<LinkButton classStyle={'primary'} linkTo={'/list'} children={'구경해보기'} />
+				</Container>
+			</>
+		);
+	}
 }
 
 export default LandingPage;
