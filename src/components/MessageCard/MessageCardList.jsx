@@ -4,6 +4,7 @@ import { FaCirclePlus } from 'react-icons/fa6';
 import { Link } from 'react-router';
 import Modal from '../Modal/Modal';
 import MessageCard from './MessageCard';
+import MessageCardModal from '../Modal/MessageCardModal';
 
 const MessageCardList = ({ messages, id }) => {
 	const [selectedMessage, setSelectedMessage] = useState(null);
@@ -26,11 +27,7 @@ const MessageCardList = ({ messages, id }) => {
 			))}
 			{selectedMessage && (
 				<Modal onClose={closeModal}>
-					<MessageCard
-						message={selectedMessage}
-						disableClick={true}
-						className={styles.modalCard} // 필요 시 스타일 조정
-					/>
+					<MessageCardModal message={selectedMessage} onClose={closeModal} />
 				</Modal>
 			)}
 		</div>
