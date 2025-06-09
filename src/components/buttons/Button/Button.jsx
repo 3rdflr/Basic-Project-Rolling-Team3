@@ -1,5 +1,3 @@
-import { Link } from 'react-router';
-
 import styles from './Button.module.css';
 
 function Button({ type = 'button', style, text, linkTo, disabled = false }) {
@@ -9,7 +7,7 @@ function Button({ type = 'button', style, text, linkTo, disabled = false }) {
 			className={`${styles[style]} ${disabled ? styles.disabled : ''}`}
 			disabled={disabled}
 		>
-			{type === 'submit' ? <span>{text}</span> : <Link to={linkTo}>{text}</Link>}
+			<span>{children}</span>
 		</button>
 	);
 }

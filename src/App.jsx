@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage/LandingPage';
+import ListPage from './pages/ListPage/ListPage.jsx';
 import WritePaper from './pages/WritePaper/WritePaper';
 import RollingPaperPage from './pages/RollingPaparPage/RollingPaperPage';
 
