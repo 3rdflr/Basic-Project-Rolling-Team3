@@ -4,24 +4,18 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 import styles from './BadgeList.module.css';
 
-const BadgeList = ({ topReactions, allReactions }) => {
-	const [isExpanded, setIsExpanded] = useState(false);
-
-	const toggleList = () => {
-		setIsExpanded(prev => !prev);
-	};
-
+const BadgeList = ({ topReactions, allReactions, isOpen, toggleOpen }) => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.topReactions}>
 				{topReactions.map(emoji => (
 					<EmojiBadge data={emoji} key={emoji.id} />
 				))}
-				<button onClick={toggleList}>
+				<button onClick={toggleOpen}>
 					<IoIosArrowDown className={styles.arrowDown} />
 				</button>
 			</div>
-			{isExpanded && (
+			{isOpen && (
 				<div className={styles.badgeList}>
 					{allReactions.map(({ id, emoji, count }) => (
 						<span className={styles.badge} key={id}>

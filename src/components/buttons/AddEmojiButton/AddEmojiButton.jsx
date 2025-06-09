@@ -5,9 +5,7 @@ import AddEmojiIcon from '../../../assets/icons/AddEmojiIcon.svg';
 
 import styles from './AddEmojiButton.module.css';
 
-const AddEmojiButton = ({ recipientId, onReactionAdded }) => {
-	const [showPicker, setShowPicker] = useState(false);
-
+const AddEmojiButton = ({ recipientId, onReactionAdded, isOpen, toggleOpen }) => {
 	const handleEmojiClick = async emojiData => {
 		try {
 			const body = {
@@ -17,7 +15,7 @@ const AddEmojiButton = ({ recipientId, onReactionAdded }) => {
 			await recipientsAPI.createRecipientsReaction(recipientId, body);
 
 			onReactionAdded?.();
-			setShowPicker(false);
+			setOpenToggle(false);
 		} catch (error) {
 			console.error('이모지 추가 실패:', error);
 		}
@@ -25,10 +23,10 @@ const AddEmojiButton = ({ recipientId, onReactionAdded }) => {
 
 	return (
 		<div className={styles.container}>
-			<button className={styles.addButton} onClick={() => setShowPicker(prev => !prev)}>
+			<button className={styles.addButton} onClick={toggleOpen}>
 				<img src={AddEmojiIcon} alt="이모지 추가 아이콘" />
 			</button>
-			{showPicker && (
+			{isOpen && (
 				<div className={styles.pickerWrapper}>
 					<EmojiPicker onEmojiClick={handleEmojiClick} />
 				</div>
