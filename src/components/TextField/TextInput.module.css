@@ -1,0 +1,33 @@
+.container {
+	width: 32rem;
+	height: 5rem;
+	border: 0.1rem solid var(--gray-300);
+	border-radius: 0.8rem;
+	padding: 1.2rem 1.6rem;
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+}
+
+.container:focus {
+	border: 0.2rem solid var(--gray-500);
+}
+
+.container:hover {
+	border: 0.1rem solid var(--gray-500);
+}
+
+.error {
+	width: 32rem;
+	height: 5rem;
+	border: 0.2rem solid var(--error);
+	border-radius: 0.8rem;
+	padding: 1.2rem 1.6rem;
+}
+
+.errorMessage {
+	font-size: 1.2rem;
+	color: var(--error);
+	font-weight: var(--font-regular);
+	line-height: 1.8rem;
+	letter-spacing: -0.5%;
+}
