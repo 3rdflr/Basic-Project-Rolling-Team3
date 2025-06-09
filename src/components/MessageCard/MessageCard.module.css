@@ -65,20 +65,15 @@
 
 .messageContent {
 	font-size: var(--font-15);
-	max-height: calc(56px);
+	max-height: calc(65px);
 	overflow-y: auto;
 	white-space: normal;
 	margin: 16px 0;
+	line-height: 22px;
 }
 
 .date {
 	font-size: var(--font-12);
 	color: var(--gray-300);
 	text-align: left;
-}
-
-.modalCard {
-	cursor: default;
-	pointer-events: none; /* 클릭 방지 */
-	box-shadow: none;
 }
