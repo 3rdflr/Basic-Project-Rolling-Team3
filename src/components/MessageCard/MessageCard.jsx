@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './MessageCard.module.css';
 import { formatDate } from '@/utils/date';
-import { sanitizeToText } from '@/utils/sanitize';
 
 const MessageCard = ({ message, onClick }) => {
 	const getRelationshipClass = relationship => {
@@ -29,7 +28,12 @@ const MessageCard = ({ message, onClick }) => {
 					</span>
 				</div>
 			</div>
-			<p className={styles.messageContent}>{sanitizeToText(message.content)}</p>
+			<ReactQuill
+				value={message.content}
+				readOnly={true}
+				theme="bubble"
+				modules={{ toolbar: false }}
+			/>
 			<p className={styles.date}>{formatDate(message.createdAt)}</p>
 		</div>
 	);
