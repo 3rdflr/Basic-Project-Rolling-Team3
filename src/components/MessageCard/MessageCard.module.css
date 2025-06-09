@@ -1,0 +1,84 @@
+.messageCard {
+	background-color: var(--white);
+	border-radius: 16px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+}
+
+.senderProfile {
+	display: grid;
+	grid-template-columns: 56px auto;
+	border-bottom: 1px solid var(--gray-200);
+	padding-bottom: 15px;
+	gap: 14px;
+}
+
+.profileImage {
+	width: 56px;
+	height: 56px;
+	border-radius: 100px;
+}
+
+.senderInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.sender {
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+}
+
+.relationship {
+	display: inline-block;
+	font-size: var(--font-14);
+	font-weight: var(--font-regular);
+	border-radius: 4px;
+	padding: 0 8px;
+	min-width: 0;
+	max-width: max-content;
+}
+
+.relationship-friend {
+	color: var(--blue-500);
+	background-color: var(--blue-100);
+}
+
+.relationship-family {
+	color: var(--green-500);
+	background-color: var(--green-100);
+}
+
+.relationship-coworker {
+	color: var(--purple-500);
+	background-color: var(--purple-100);
+}
+
+.relationship-acquaintance {
+	color: var(--beige-500);
+	background-color: var(--beige-100);
+}
+
+.messageContent {
+	font-size: var(--font-15);
+	max-height: calc(56px);
+	overflow-y: auto;
+	white-space: normal;
+	margin: 16px 0;
+}
+
+.date {
+	font-size: var(--font-12);
+	color: var(--gray-300);
+	text-align: left;
+}
+
+.modalCard {
+	cursor: default;
+	pointer-events: none; /* 클릭 방지 */
+	box-shadow: none;
+}

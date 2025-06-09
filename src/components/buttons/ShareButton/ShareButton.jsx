@@ -53,7 +53,7 @@ const ShareButton = () => {
 	return (
 		<div className={styles.wrapper}>
 			<button className={styles.sharebutton} onClick={toggleDropdown}>
-				<IoShareOutline />
+				<IoShareOutline className={styles.shareButtonIcon} />
 			</button>
 			{open && (
 				<ul className={styles.dropdown}>
