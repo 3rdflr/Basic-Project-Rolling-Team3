@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-// import Header from '../../components/headers/Header/Header';
+import Header from '../../components/headers/Header/Header';
 import TextInput from '../../components/TextField/TextInput';
 import BackgroundSelector from '../../components/buttons/BackgroundSelector/BackgroundSelector';
 import Button from '../../components/buttons/Button/Button';
@@ -60,7 +59,7 @@ function WritePaper() {
 
 	return (
 		<div className={styles.container}>
-			{/* <Header isForm={true} /> */}
+			<Header isForm={true} />
 			<form onSubmit={handleSubmit} className={styles.form}>
 				<div className={styles.inputarea}>
 					<h2 className={styles.h2}>To</h2>
@@ -95,7 +94,7 @@ function WritePaper() {
 					/>
 				</div>
 				<div className={styles.button}>
-					<Button type="submit" style="primary" text="생성하기" disabled={!name.trim()} />
+					<Button type="submit" classStyle="primary" children="생성하기" disabled={!name.trim()} />
 				</div>
 			</form>
 		</div>
