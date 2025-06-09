@@ -21,6 +21,7 @@ const RollingPaperPage = () => {
 		data: reactionData,
 		isLoading: loadingReactions,
 		error: errorReactions,
+		refetch: refetchReactions,
 	} = useRecipientReactions(recipientId);
 
 	const {
@@ -44,6 +45,7 @@ const RollingPaperPage = () => {
 					name={name}
 					recipientId={recipientId}
 					allReactions={allReactions}
+					onReactionAdded={refetchReactions}
 				/>
 			</header>
 			<main>
