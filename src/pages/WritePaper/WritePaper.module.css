@@ -1,12 +1,16 @@
 .container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 	position: relative;
-	width: 80vw;
 	margin: 0 auto;
 }
 
 .h2 {
 	font-size: var(--font-24);
 	font-weight: var(--font-bold);
+	margin-bottom: 1rem;
 }
 
 .p {
@@ -18,11 +22,11 @@
 }
 
 .inputarea {
-	margin-top: 9.5rem;
+	margin-top: 3rem;
 }
 
 .input {
-	margin: 2rem;
+	margin: 3rem;
 }
 
 .backgroundselectortext {
@@ -30,13 +34,10 @@
 }
 
 .backgroundselector {
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 }
 
-.selector {
-	margin: 5rem;
-}
-
+/*마진 제대로 안들어감. 다시 할 것.*/
 .button {
 	margin-top: 18rem;
 }
