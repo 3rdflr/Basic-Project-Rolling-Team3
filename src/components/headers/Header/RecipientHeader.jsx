@@ -4,11 +4,14 @@ import BadgeList from '../../BadgeList/BadgeList';
 
 import styles from './RecipientHeader.module.css';
 
-const RecipientHeader = () => {
+const RecipientHeader = ({ name, topReactions, allReactions }) => {
 	return (
 		<div className={styles.header}>
-			<BadgeList />
-			<ShareButton />
+			<h1 className={styles.recipient}>To. {name}</h1>
+			<div className={styles.headerItems}>
+				<BadgeList topReactions={topReactions} allReactions={allReactions} />
+				<ShareButton />
+			</div>
 		</div>
 	);
 };
