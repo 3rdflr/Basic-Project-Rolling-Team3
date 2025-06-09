@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import icon from '../../../assets/icons/logo.svg';
 import styles from './Header.module.css';
+import LinkButton from '../../buttons/Button/LinkButton';
 
 function Header({ isForm = false }) {
 	return (
@@ -12,7 +13,11 @@ function Header({ isForm = false }) {
 				<Link to={'/'}>
 					<img src={icon} alt="롤링 로고" className={styles.img} />
 				</Link>
-				{!isForm && <Button style={'button'} linkTo={'/post'} text={'롤링 페이퍼 만들기'} />}
+				{!isForm ? (
+					<LinkButton classStyle={'button'} linkTo={'/post'} children={'롤링 페이퍼 만들기'} />
+				) : (
+					<div></div>
+				)}
 			</div>
 		</div>
 	);
