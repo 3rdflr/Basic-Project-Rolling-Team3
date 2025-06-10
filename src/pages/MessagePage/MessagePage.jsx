@@ -10,6 +10,8 @@ import Keyframes from '../../components/animation/logoAnimation';
 import { TEAM } from '../../constants/endPoints';
 import { recipientsAPI } from '../../api/index.js';
 import { useParams } from 'react-router-dom';
+import TextEditor from '../../components/TextEditor/TextEditor.jsx';
+
 
 function MessagePage() {
 	const [sender, setSender] = useState('');
@@ -28,6 +30,8 @@ function MessagePage() {
 
 	const { id } = useParams();
 
+	const [content, setContent] = useState('');
+  
 	console.log(id);
 
 	useEffect(() => {
@@ -72,7 +76,7 @@ function MessagePage() {
 				sender: sender,
 				profileImageURL: selectedImage,
 				relationship: selectedRelationship,
-				content: '테스트', // 수정해야함
+				content: content, // 수정해야함
 				font: selectedFont,
 			};
 			await postMessage(recipientId, data);
@@ -142,7 +146,7 @@ function MessagePage() {
 						onChange={setSelectedRelationship}
 					/>
 					<h2 className={styles.h2}>내용을 입력해 주세요</h2>
-					{/*텍스트에디터박스*/}
+					<TextEditor value={content} onChange={setContent} />
 					<h2 className={styles.h2}>폰트 선택</h2>
 					<TextDropdown options={font} value={selectedFont} onChange={setSelectedFont} />
 					<Button
