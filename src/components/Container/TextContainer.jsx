@@ -3,7 +3,6 @@ import { useScreenSize } from '../../hooks/useScreenSize.jsx';
 
 function TextContainer({ content, isReverse = false }) {
 	const { header, title1, title2, description, img, alt } = content;
-	const screenSize = useScreenSize();
 
 	return (
 		<div className={isReverse ? styles.reverse : styles.container}>
@@ -12,7 +11,7 @@ function TextContainer({ content, isReverse = false }) {
 				<div className={styles.h1}>
 					<h1>
 						{title1}
-						{screenSize === 'lg' && <br />}
+						<br className={styles.br} />
 						{title2}
 					</h1>
 				</div>

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 function Button({
 	type = 'button',
-	classStyle,
+	variant,
 	size,
 	children,
 	linkTo,
@@ -13,13 +13,14 @@ function Button({
 }) {
 	const buttonClass = classNames(
 		styles.button,
-		styles[classStyle],
+		styles[variant],
 		styles[size],
 		{ [styles.disabled]: disabled },
 		className
 	);
 	return (
 		<button type={type} className={buttonClass} disabled={disabled} onClick={onClick}>
+
 			<span>{children}</span>
 		</button>
 	);

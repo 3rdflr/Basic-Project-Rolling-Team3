@@ -14,7 +14,7 @@ function Header({ isForm = false }) {
 					<img src={icon} alt="롤링 로고" className={styles.img} />
 				</Link>
 				{!isForm ? (
-					<LinkButton classStyle={'button'} linkTo={'/post'} children={'롤링 페이퍼 만들기'} />
+					<LinkButton variant={'button'} linkTo={'/post'} children={'롤링 페이퍼 만들기'} />
 				) : (
 					<div></div>
 				)}

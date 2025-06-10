@@ -51,7 +51,7 @@ function LandingPage() {
 				<Container>
 					<TextContainer content={content_1} />
 					<TextContainer content={content_2} isReverse={true} />
-					<LinkButton classStyle={'primary'} linkTo={'/list'} children={'구경해보기'} />
+					<LinkButton variant={'primary'} linkTo={'/list'} children={'구경해보기'} />
 				</Container>
 			</>
 		);

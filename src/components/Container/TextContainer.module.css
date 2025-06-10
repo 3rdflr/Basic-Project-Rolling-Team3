@@ -43,6 +43,10 @@
 	margin-top: 0.4rem;
 }
 
+.br {
+	display: none;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
 	.container,
@@ -83,5 +87,8 @@
 		overflow: clip;
 		margin: 0;
 		overflow: hidden;
+	}
+	.br {
+		display: inline;
 	}
 }

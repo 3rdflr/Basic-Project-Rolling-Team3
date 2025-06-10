@@ -1,20 +1,3 @@
-.지인 {
-	background-color: var(--beige-100);
-	color: var(--beige-600);
-}
-.동료 {
-	background-color: var(--purple-100);
-	color: var(--purple-600);
-}
-.가족 {
-	background-color: var(--green-100);
-	color: var(--green-600);
-}
-.친구 {
-	background-color: var(--blue-100);
-	color: var(--blue-600);
-}
-
 .emojiBadge {
 	display: flex;
 	align-items: center;

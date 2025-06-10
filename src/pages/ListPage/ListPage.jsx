@@ -11,6 +11,8 @@ import Keyframes from '../../components/animation/logoAnimation.jsx';
 import styles from './ListPage.module.css';
 import LinkButton from '../../components/buttons/Button/LinkButton.jsx';
 
+const SLICE_NUM = 10;
+
 function ListPage() {
 	const [recipients, setRecipients] = useState([]);
 	const [isLoading, error, fetchAllRecipients] = useFetch(recipientsAPI.getAllRecipient);
@@ -43,14 +45,14 @@ function ListPage() {
 		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortHot([...recipients]).slice(0, 10);
+		return sortHot([...recipients]).slice(0, SLICE_NUM);
 	}, [recipients]);
 
 	const resent = useMemo(() => {
 		if (!Array.isArray(recipients)) {
 			return [];
 		}
-		return sortRecent([...recipients]).slice(0, 10);
+		return sortRecent([...recipients]).slice(0, SLICE_NUM);
 	}, [recipients]);
 
 	console.log('원본 카드 데이터:', recipients);
@@ -100,7 +102,7 @@ function ListPage() {
 					</>
 				)}
 
-				<LinkButton classStyle={'primary'} linkTo={'/post'} children={'나도 만들어보기'} />
+				<LinkButton variant={'primary'} linkTo={'/post'} children={'나도 만들어보기'} />
 			</div>
 		</>
 	);

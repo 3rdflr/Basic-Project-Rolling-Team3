@@ -1,4 +1,4 @@
-import { EmojiBadge } from '../Badge/Badge';
+import EmojiBadge from '../Badge/EmojiBadge';
 import ProfileImg from '../Badge/ProfileImg';
 import classNames from 'classnames';
 
@@ -23,9 +23,11 @@ function Card({ data }) {
 			<div className={cardClassName} style={cardStyle}>
 				<div>
 					<div className={styles.cardText}>
-						<h1 className={backgroundImageURL ? styles.nameInherit : styles.name}>To. {name}</h1>
+						<h1 className={backgroundImageURL ? styles.nameWhite : styles.name}>
+							To. {name.length <= 8 ? name : `${name.slice(0, 7)}...`}
+						</h1>
 						<ProfileImg count={messageCount} data={recentMessages} />
-						<span className={backgroundImageURL ? styles.countTextInherit : styles.countText}>
+						<span className={backgroundImageURL ? styles.countTextWhite : styles.countText}>
 							<span className={styles.count}>{messageCount}</span>명이 작성했어요!
 						</span>
 					</div>
