@@ -22,8 +22,8 @@ const MessageCardList = ({ messages, id }) => {
 			<Link to={`/post/${id}/message`} className={styles.addMessage}>
 				<FaCirclePlus className={styles.addButton} />
 			</Link>
-			{messages.map((message, index) => (
-				<MessageCard key={index} message={message} onClick={openModal} />
+			{messages.map(message => (
+				<MessageCard key={message.id} message={message} onClick={openModal} />
 			))}
 			{selectedMessage && (
 				<Modal onClose={closeModal}>
