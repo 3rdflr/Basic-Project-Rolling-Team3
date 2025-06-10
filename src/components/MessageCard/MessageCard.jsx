@@ -2,8 +2,9 @@ import React from 'react';
 import styles from './MessageCard.module.css';
 import { formatDate } from '@/utils/date';
 import ReactQuill from 'react-quill-new';
+import { FaRegTrashCan } from 'react-icons/fa6';
 
-const MessageCard = ({ message, onClick }) => {
+const MessageCard = ({ message, onClick, onDelete, isEditMode }) => {
 	const getRelationshipClass = relationship => {
 		switch (relationship) {
 			case '친구':
@@ -19,7 +20,7 @@ const MessageCard = ({ message, onClick }) => {
 		}
 	};
 	return (
-		<div className={styles.messageCard} onClick={() => onClick?.(message)}>
+		<div className={styles.messageCard}>
 			<div className={styles.senderProfile}>
 				<img src={message.profileImageURL} alt="profile" className={styles.profileImage} />
 				<div className={styles.senderInfo}>
@@ -28,6 +29,11 @@ const MessageCard = ({ message, onClick }) => {
 						{message.relationship}
 					</span>
 				</div>
+				{isEditMode && (
+					<button className={styles.deleteButton} onClick={() => onDelete(message.id)}>
+						<FaRegTrashCan />
+					</button>
+				)}
 			</div>
 			<ReactQuill
 				value={message.content}
@@ -35,7 +41,12 @@ const MessageCard = ({ message, onClick }) => {
 				theme="bubble"
 				modules={{ toolbar: false }}
 			/>
-			<p className={styles.date}>{formatDate(message.createdAt)}</p>
+			<div className={styles.footer}>
+				<p className={styles.date}>{formatDate(message.createdAt)}</p>
+				<p className={styles.viewDetail} onClick={() => onClick?.(message)}>
+					자세히 보기
+				</p>
+			</div>
 		</div>
 	);
 };
