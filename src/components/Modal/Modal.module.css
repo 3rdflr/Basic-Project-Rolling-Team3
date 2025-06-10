@@ -12,11 +12,10 @@
 }
 
 .modalBox {
-	background: white;
-	padding: 24px;
 	border-radius: 8px;
-	width: 300px;
+	margin: 0 20px;
 	position: relative;
+	width: 100%;
 }
 
 .closeButton {

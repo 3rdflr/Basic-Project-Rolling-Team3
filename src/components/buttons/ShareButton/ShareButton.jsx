@@ -1,25 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoShareOutline } from 'react-icons/io5';
 import styles from './ShareButton.module.css';
 import { KAKAO_APP_KEY } from '../../../constants/endPoints';
 import Toast from '../../Toast/Toast';
 
-const ShareButton = () => {
-	const [open, setOpen] = useState(false);
+const ShareButton = ({ isOpen, toggleOpen }) => {
 	const [showToast, setShowToast] = useState(false);
-	const dropdownRef = useRef(null);
-
-	const toggleDropdown = () => setOpen(prev => !prev);
-
-	useEffect(() => {
-		const handleClickOutside = e => {
-			if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-				setOpen(false);
-			}
-		};
-		document.addEventListener('mousedown', handleClickOutside);
-		return () => document.removeEventListener('mousedown', handleClickOutside);
-	}, []);
 
 	useEffect(() => {
 		if (window.Kakao && !window.Kakao.isInitialized()) {
@@ -52,10 +38,10 @@ const ShareButton = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<button className={styles.sharebutton} onClick={toggleDropdown}>
+			<button className={styles.sharebutton} onClick={toggleOpen}>
 				<IoShareOutline className={styles.shareButtonIcon} />
 			</button>
-			{open && (
+			{isOpen && (
 				<ul className={styles.dropdown}>
 					<li onClick={handleKakaoShare}>카카오톡 공유</li>
 					<li onClick={handleCopyUrl}>URL 공유</li>

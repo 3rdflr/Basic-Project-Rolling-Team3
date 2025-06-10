@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { recipientsAPI } from '../api';
 
 function useRecipientReactions(recipientId) {
@@ -6,25 +6,26 @@ function useRecipientReactions(recipientId) {
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	useEffect(() => {
+	const fetchReactions = useCallback(async () => {
 		if (!recipientId) return;
 
-		const fetchReactions = async () => {
-			try {
-				setIsLoading(true);
-				const result = await recipientsAPI.getRecipientsReactions(recipientId);
-				setData(result);
-			} catch (err) {
-				setError(err);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		fetchReactions();
+		try {
+			setIsLoading(true);
+			const result = await recipientsAPI.getRecipientsReactions(recipientId);
+			setData(result);
+			setError(null);
+		} catch (err) {
+			setError(err);
+		} finally {
+			setIsLoading(false);
+		}
 	}, [recipientId]);
 
-	return { data, isLoading, error };
+	useEffect(() => {
+		fetchReactions();
+	}, [fetchReactions]);
+
+	return { data, isLoading, error, refetch: fetchReactions };
 }
 
 export default useRecipientReactions;
