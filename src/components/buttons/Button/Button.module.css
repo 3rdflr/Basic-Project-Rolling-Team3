@@ -40,6 +40,18 @@
 	cursor: not-allowed;
 }
 
+.small {
+	border: none;
+	outline: none;
+	background-color: var(--purple-600);
+	border-radius: 10px;
+	color: var(--white);
+	font-size: var(--font-14);
+	font-weight: var(--font-bold);
+	font-size: 12px;
+	padding: 4px 8px;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
 	.primary {
