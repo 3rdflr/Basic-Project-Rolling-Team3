@@ -14,8 +14,21 @@
 .pickerWrapper {
 	position: absolute;
 	top: 100%;
-	right: 0;
+	right: -110%;
 	z-index: var(--zindex-high);
 	margin-top: 15px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.buttonText {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.pickerWrapper {
+		right: 0;
+	}
+
+	.buttonText {
+		display: inline;
+	}
 }

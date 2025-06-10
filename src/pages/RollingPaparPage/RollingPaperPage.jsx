@@ -11,11 +11,13 @@ import Button from '../../components/buttons/Button/Button';
 import styles from './RollingPaparPage.module.css';
 import { useState } from 'react';
 import useDeleteRecipient from '../../hooks/useDeleteRecipient';
+import { useScreenSize } from '../../hooks/useScreenSize';
 
 const RollingPaperPage = () => {
 	const { id: recipientId } = useParams();
 	const [isEditMode, setIsEditMode] = useState(false);
 	const navigate = useNavigate();
+	const screenSize = useScreenSize();
 
 	const toggleEditMode = () => {
 		setIsEditMode(prev => !prev);
@@ -67,8 +69,8 @@ const RollingPaperPage = () => {
 
 	return (
 		<div>
-			<header>
-				<Header />
+			<header className={styles.header}>
+				{screenSize !== 'sm' && <Header />}
 				<RecipientHeader
 					topReactions={topReactions}
 					name={name}
@@ -81,29 +83,25 @@ const RollingPaperPage = () => {
 				style={{
 					backgroundColor: backgroundImageURL ? undefined : backgroundColor,
 					backgroundImage: backgroundImageURL ? `url(${backgroundImageURL})` : undefined,
-					backgroundSize: 'cover',
-					backgroundPosition: 'center',
-					minHeight: '100vh',
-					overflow: 'auto',
-					position: 'relative',
-					padding: '0 20px',
 				}}
 				className={styles.main}
 			>
-				<div className={styles.buttonItems}>
-					<Link to="/list">
-						<Button size="small">뒤로 가기</Button>
-					</Link>
-					<Button size="small" onClick={toggleEditMode}>
-						{isEditMode ? '편집완료' : '편집하기'}
-					</Button>
+				<div className={styles.wrapper}>
+					<div className={styles.buttonItems}>
+						<Link to="/list">
+							<Button size="small">뒤로 가기</Button>
+						</Link>
+						<Button size="small" onClick={toggleEditMode}>
+							{isEditMode ? '편집완료' : '편집하기'}
+						</Button>
+					</div>
+					{isEditMode && (
+						<Button size="small" onClick={handleDelete} className={styles.deleteButton}>
+							롤링페이퍼 삭제하기
+						</Button>
+					)}
+					<MessageCardList messages={messagesCardData} id={recipientId} isEditMode={isEditMode} />
 				</div>
-				{isEditMode && (
-					<Button size="small" onClick={handleDelete} className={styles.deleteButton}>
-						롤링페이퍼 삭제하기
-					</Button>
-				)}
-				<MessageCardList messages={messagesCardData} id={recipientId} isEditMode={isEditMode} />
 			</main>
 		</div>
 	);
