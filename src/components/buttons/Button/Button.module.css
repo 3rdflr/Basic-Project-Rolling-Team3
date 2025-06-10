@@ -40,18 +40,20 @@
 	cursor: not-allowed;
 }
 
+.wideButton {
+	width: 320px;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
-	.primary {
-		width: 72rem;
-		height: 5.6rem;
+	.wideButton {
+		width: 720px;
 	}
 }
 
 /* Desktop (Large) */
 @media (min-width: 1200px) {
-	.primary {
-		bottom: 4rem;
-		width: 28rem;
+	.wideButton {
+		width: 720px;
 	}
 }
