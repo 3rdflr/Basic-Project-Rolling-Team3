@@ -23,7 +23,7 @@ function ListPage() {
 	const [isSearching, setIsSearching] = useState(false);
 
 	useEffect(() => {
-		fetchAllRecipients({ limit: 1000, offset: 0 })
+		fetchAllRecipients({ limit: 100, offset: 0 })
 			.then(data => {
 				if (data) {
 					setRecipients(data);
