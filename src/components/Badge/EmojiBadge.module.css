@@ -1,0 +1,27 @@
+.emojiBadge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 55px;
+	height: 32px;
+	border-radius: 32px;
+	gap: 2px;
+	background-color: rgba(0, 0, 0, 0.54);
+}
+.emoji {
+	font-size: 20px;
+}
+.count {
+	font-size: var(--font-16);
+	font-weight: 400;
+	color: var(--white);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.emojiBadge {
+		width: 65px;
+		height: 36px;
+		gap: 4px;
+	}
+}
