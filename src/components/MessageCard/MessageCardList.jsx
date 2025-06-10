@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MessageCardList.module.css';
 import { FaCirclePlus } from 'react-icons/fa6';
 import { Link } from 'react-router';
 import Modal from '../Modal/Modal';
 import MessageCard from './MessageCard';
 import MessageCardModal from '../Modal/MessageCardModal';
+import useDeleteRecipientMessage from '../../hooks/useDeleteRecipientMessage';
 
-const MessageCardList = ({ messages, id }) => {
+const MessageCardList = ({ messages, id, isEditMode }) => {
 	const [selectedMessage, setSelectedMessage] = useState(null);
+	const [messagesState, setMessagesState] = useState(messages);
+
+	const { deleteMessage } = useDeleteRecipientMessage();
+
+	const handleDelete = async id => {
+		try {
+			await deleteMessage(id);
+			setMessagesState(prev => prev.filter(msg => msg.id !== id));
+		} catch (err) {
+			alert('삭제에 실패했습니다.');
+		}
+	};
 
 	const openModal = message => {
 		setSelectedMessage(message);
@@ -22,8 +35,14 @@ const MessageCardList = ({ messages, id }) => {
 			<Link to={`/post/${id}/message`} className={styles.addMessage}>
 				<FaCirclePlus className={styles.addButton} />
 			</Link>
-			{messages.map(message => (
-				<MessageCard key={message.id} message={message} onClick={openModal} />
+			{messagesState?.map(msg => (
+				<MessageCard
+					key={msg.id}
+					message={msg}
+					onClick={openModal}
+					onDelete={handleDelete}
+					isEditMode={isEditMode}
+				/>
 			))}
 			{selectedMessage && (
 				<Modal onClose={closeModal}>

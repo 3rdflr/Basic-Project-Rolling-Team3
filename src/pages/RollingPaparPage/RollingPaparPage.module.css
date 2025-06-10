@@ -1,0 +1,14 @@
+.buttonItems {
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.deleteButton {
+	position: fixed;
+	bottom: 16px;
+	left: 20px;
+	right: 20px;
+	padding: 14px 24px;
+	z-index: 10;
+}

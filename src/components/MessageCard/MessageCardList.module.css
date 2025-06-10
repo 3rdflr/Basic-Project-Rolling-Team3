@@ -1,6 +1,4 @@
 .messageList {
-	background-color: #ffe6a7; /* test */
-	padding: 24px 20px;
 	display: flex;
 	flex-direction: column;
 	gap: 16px;

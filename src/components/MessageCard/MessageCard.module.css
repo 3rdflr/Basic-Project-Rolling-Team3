@@ -5,12 +5,11 @@
 	padding: 24px;
 	display: flex;
 	flex-direction: column;
-	cursor: pointer;
 }
 
 .senderProfile {
 	display: grid;
-	grid-template-columns: 56px auto;
+	grid-template-columns: 56px auto auto;
 	border-bottom: 1px solid var(--gray-200);
 	padding-bottom: 15px;
 	gap: 14px;
@@ -63,8 +62,26 @@
 	background-color: var(--beige-100);
 }
 
+.deleteButton {
+	border: 1px solid var(--white);
+	border-radius: 6px;
+	padding: 8px;
+	width: 40px;
+	height: 40px;
+	z-index: var(--zindex-high);
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+}
+
 .date {
 	font-size: var(--font-12);
 	color: var(--gray-300);
 	text-align: left;
+}
+
+.viewDetail {
+	cursor: pointer;
 }
