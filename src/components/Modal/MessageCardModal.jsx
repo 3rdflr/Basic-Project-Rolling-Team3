@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './MessageCardModal.module.css';
 import { formatDate } from '../../utils/date';
-import { sanitizeToText } from '@/utils/sanitize';
 import Button from '../buttons/Button/Button';
+import ReactQuill from 'react-quill-new';
 
 const MessageCardModal = ({ message, onClick, onClose }) => {
 	const getRelationshipClass = relationship => {
@@ -37,7 +37,12 @@ const MessageCardModal = ({ message, onClick, onClose }) => {
 				</div>
 				<p className={styles.modalDate}>{formatDate(message.createdAt)}</p>
 			</div>
-			<p className={styles.modalMessageContent}>{sanitizeToText(message.content)}</p>
+			<ReactQuill
+				value={message.content}
+				readOnly={true}
+				theme="bubble"
+				modules={{ toolbar: false }}
+			/>
 			<Button classStyle="primary" onClick={onClose}>
 				확인
 			</Button>
