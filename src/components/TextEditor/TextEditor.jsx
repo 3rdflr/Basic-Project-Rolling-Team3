@@ -1,5 +1,5 @@
 import ReactQuill from 'react-quill-new';
-import 'react-quill-new/dist/quill.snow.css'; // 에디터 스타일
+import 'react-quill-new/dist/quill.snow.css';
 
 function TextEditor({ value, onChange }) {
 	const modules = {
