@@ -1,4 +1,10 @@
-.messageCard {
+.modalHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modalMessageCard {
 	background-color: var(--white);
 	border-radius: 16px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -8,7 +14,7 @@
 	cursor: pointer;
 }
 
-.senderProfile {
+.modalSenderProfile {
 	display: grid;
 	grid-template-columns: 56px auto;
 	border-bottom: 1px solid var(--gray-200);
@@ -16,24 +22,24 @@
 	gap: 14px;
 }
 
-.profileImage {
+.modalProfileImage {
 	width: 56px;
 	height: 56px;
 	border-radius: 100px;
 }
 
-.senderInfo {
+.modalSenderInfo {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 }
 
-.sender {
+.modalSender {
 	font-size: var(--font-16);
 	font-weight: var(--font-regular);
 }
 
-.relationship {
+.modalRelationship {
 	display: inline-block;
 	font-size: var(--font-14);
 	font-weight: var(--font-regular);
@@ -63,16 +69,14 @@
 	background-color: var(--beige-100);
 }
 
-.messageContent {
+.modalMessageContent {
 	font-size: var(--font-15);
-	max-height: calc(65px);
 	overflow-y: auto;
-	white-space: normal;
 	margin: 16px 0;
 	line-height: 22px;
 }
 
-.date {
+.modalDate {
 	font-size: var(--font-12);
 	color: var(--gray-300);
 	text-align: left;

@@ -12,6 +12,7 @@ import { recipientsAPI } from '../../api/index.js';
 import { useParams } from 'react-router-dom';
 import TextEditor from '../../components/TextEditor/TextEditor.jsx';
 
+
 function MessagePage() {
 	const [sender, setSender] = useState('');
 	const [senderError, setSenderError] = useState(false);
@@ -30,7 +31,7 @@ function MessagePage() {
 	const { id } = useParams();
 
 	const [content, setContent] = useState('');
-
+  
 	console.log(id);
 
 	useEffect(() => {

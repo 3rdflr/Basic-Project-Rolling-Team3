@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './MessageCard.module.css';
+import { formatDate } from '@/utils/date';
+import { sanitizeToText } from '@/utils/sanitize';
 
-const MessageCard = ({ message, onClick, className = '', disableClick = false }) => {
+const MessageCard = ({ message, onClick }) => {
 	const getRelationshipClass = relationship => {
 		switch (relationship) {
 			case '친구':
@@ -17,10 +19,7 @@ const MessageCard = ({ message, onClick, className = '', disableClick = false })
 		}
 	};
 	return (
-		<div
-			className={`${styles.messageCard} ${className}`}
-			onClick={!disableClick ? () => onClick?.(message) : undefined}
-		>
+		<div className={styles.messageCard} onClick={() => onClick?.(message)}>
 			<div className={styles.senderProfile}>
 				<img src={message.profileImageURL} alt="profile" className={styles.profileImage} />
 				<div className={styles.senderInfo}>
@@ -30,8 +29,8 @@ const MessageCard = ({ message, onClick, className = '', disableClick = false })
 					</span>
 				</div>
 			</div>
-			<p className={styles.messageContent}>{message.content}</p>
-			<p className={styles.date}>{message.createdAt}</p>
+			<p className={styles.messageContent}>{sanitizeToText(message.content)}</p>
+			<p className={styles.date}>{formatDate(message.createdAt)}</p>
 		</div>
 	);
 };
