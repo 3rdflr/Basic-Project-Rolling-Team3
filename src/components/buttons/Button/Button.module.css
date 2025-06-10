@@ -2,9 +2,9 @@
 	background-color: inherit;
 	cursor: pointer;
 	background-color: var(--white);
-	padding: 0.8rem 1.6rem;
-	border-radius: 0.6rem;
-	border: 0.1rem solid var(--gray-300);
+	padding: 8px 16px;
+	border-radius: 6px;
+	border: 1px solid var(--gray-300);
 	font-size: var(--font-16);
 	color: var(--gray-900);
 	z-index: 999;
@@ -15,10 +15,10 @@
 	border: none;
 	outline: none;
 	background-color: var(--purple-600);
-	width: 32rem;
-	height: 5.6rem;
-	border-radius: 2rem;
-	bottom: 2.4rem;
+	width: 320px;
+	height: 56px;
+	border-radius: 2px;
+	bottom: 24px;
 	color: var(--white);
 	font-size: var(--font-18);
 	font-weight: var(--font-bold);
@@ -40,20 +40,31 @@
 	cursor: not-allowed;
 }
 
-.wideButton {
-	width: 320px;
+.small {
+	border: none;
+	outline: none;
+	background-color: var(--purple-600);
+	border-radius: 10px;
+	color: var(--white);
+	font-size: var(--font-14);
+	font-weight: var(--font-bold);
+	font-size: 12px;
+	padding: 4px 8px;
+
 }
 
 /* Tablet */
 @media (min-width: 768px) {
-	.wideButton {
+	.primary {
 		width: 720px;
+		height: 56px;
 	}
 }
 
 /* Desktop (Large) */
 @media (min-width: 1200px) {
-	.wideButton {
-		width: 720px;
+	.primary {
+		bottom: 40px;
+		width: 280px;
 	}
 }
