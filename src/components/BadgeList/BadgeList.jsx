@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EmojiBadge } from '../Badge/Badge';
+import EmojiBadge from '../Badge/EmojiBadge';
 import { IoIosArrowDown } from 'react-icons/io';
 
 import styles from './BadgeList.module.css';
