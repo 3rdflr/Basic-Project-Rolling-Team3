@@ -47,10 +47,10 @@
 .name {
 	font-size: var(--font-18);
 	font-weight: var(--font-bold);
-	color: var(--gray-900);
+	color: var(--gray-700);
 }
 
-.nameInherit {
+.nameWhite {
 	font-size: var(--font-18);
 	font-weight: var(--font-bold);
 	color: var(--white);
@@ -58,10 +58,10 @@
 .countText {
 	font-size: var(--font-14);
 	font-weight: var(--font-regular);
-	color: var(--gray-900);
+	color: var(--gray-700);
 }
 
-.countTextInherit {
+.countTextWhite {
 	font-size: var(--font-14);
 	font-weight: var(--font-regular);
 	color: var(--white);
@@ -91,13 +91,13 @@
 	.name {
 		font-size: var(--font-24);
 	}
-	.nameInherit {
+	.nameWhite {
 		font-size: var(--font-24);
 	}
 	.countText {
 		font-size: var(--font-16);
 	}
-	.countTextInherit {
+	.countTextWhite {
 		font-size: var(--font-16);
 	}
 	.badge {
