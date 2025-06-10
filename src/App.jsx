@@ -10,7 +10,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="/additem" element={<ListPage />} />
+				<Route path="/list" element={<ListPage />} />
 				<Route path="/post" element={<WritePaper />} />
 				<Route path="/post/:id" element={<RollingPaperPage />} />
 				<Route path="/post/:id/message" element={<MessagePage />} />
