@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MessageCard.module.css';
 import { formatDate } from '@/utils/date';
+import ReactQuill from 'react-quill-new';
 
 const MessageCard = ({ message, onClick }) => {
 	const getRelationshipClass = relationship => {

@@ -14,6 +14,7 @@
 		"classnames": "^2.5.1",
 		"dompurify": "^3.2.6",
 		"emoji-picker-react": "^4.12.2",
+		"motion": "^12.16.0",
 		"react": "^19.1.0",
 		"react-content-loader": "^7.0.2",
 		"react-dom": "^19.1.0",

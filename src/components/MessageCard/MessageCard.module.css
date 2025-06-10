@@ -63,15 +63,6 @@
 	background-color: var(--beige-100);
 }
 
-.messageContent {
-	font-size: var(--font-15);
-	max-height: calc(65px);
-	overflow-y: auto;
-	white-space: normal;
-	margin: 16px 0;
-	line-height: 22px;
-}
-
 .date {
 	font-size: var(--font-12);
 	color: var(--gray-300);
