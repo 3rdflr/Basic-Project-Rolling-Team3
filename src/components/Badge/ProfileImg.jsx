@@ -17,6 +17,7 @@ function ProfileImg({ count, data }) {
 							className={style.profileImage}
 							src={profile.profileImageURL}
 							alt={`프로필 이미지 ${profile.id}`}
+							loading="lazy"
 						/>
 					))}
 			{rest > 0 && <span className={style.remainingCount}>+{rest}</span>}
