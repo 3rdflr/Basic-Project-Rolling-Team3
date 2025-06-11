@@ -1,6 +1,6 @@
 import styles from './TextInput.module.css';
 
-function TextInput({ type, value, placeholder, onChange, error, errorMessage, onBlur }) {
+function TextInput({ type, value, placeholder, onChange, error, errorMessage, onBlur, maxLength }) {
 	return (
 		<div>
 			<input
@@ -10,6 +10,7 @@ function TextInput({ type, value, placeholder, onChange, error, errorMessage, on
 				placeholder={placeholder}
 				onChange={onChange}
 				onBlur={onBlur}
+				maxLength={40}
 			/>
 			{error && <div className={styles.errorMessage}>{errorMessage}</div>}
 		</div>

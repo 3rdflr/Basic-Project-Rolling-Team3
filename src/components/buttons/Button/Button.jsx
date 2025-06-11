@@ -20,7 +20,6 @@ function Button({
 	);
 	return (
 		<button type={type} className={buttonClass} disabled={disabled} onClick={onClick}>
-
 			<span>{children}</span>
 		</button>
 	);

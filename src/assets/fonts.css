@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'Noto Sans';
+	src: url('/NotoSansKR-VariableFont_wght.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: '나눔손글씨 손편지체';
+	src: url('/NanumBrush.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: '나눔명조';
+	src: url('/NanumMyeongjo.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	src: url('/Pretendard-Regular.woff') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

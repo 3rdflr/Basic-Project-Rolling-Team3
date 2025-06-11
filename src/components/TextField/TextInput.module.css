@@ -1,47 +1,47 @@
 .container {
-	width: 32rem;
-	height: 5rem;
-	border: 0.1rem solid var(--gray-300);
-	border-radius: 0.8rem;
-	padding: 1.2rem 1.6rem;
+	width: 320px;
+	height: 50px;
+	border: 1px solid var(--gray-300);
+	border-radius: 8px;
+	padding: 12px 55px 12px 16px;
 	font-size: var(--font-16);
 	font-weight: var(--font-regular);
 }
 
 .container:focus {
-	border: 0.2rem solid var(--gray-500);
+	border: 2px solid var(--gray-500);
 }
 
 .container:hover {
-	border: 0.1rem solid var(--gray-500);
+	border: 1px solid var(--gray-500);
 }
 
 .error {
-	width: 32rem;
-	height: 5rem;
-	border: 0.2rem solid var(--error);
-	border-radius: 0.8rem;
-	padding: 1.2rem 1.6rem;
+	width: 320px;
+	height: 50px;
+	border: 2px solid var(--error) !important;
+	border-radius: 8px;
+	padding: 12px 16px;
 }
 
 .errorMessage {
-	font-size: 1.2rem;
+	font-size: 12px;
 	color: var(--error);
 	font-weight: var(--font-regular);
-	line-height: 1.8rem;
+	line-height: 18px;
 	letter-spacing: -0.5%;
 }
 
 /* Tablet */
 @media (min-width: 768px) {
 	.container {
-		width: 72rem;
+		width: 720px;
 	}
 }
 
 /* Desktop (Large) */
 @media (min-width: 1200px) {
 	.container {
-		width: 72rem;
+		width: 720px;
 	}
 }
