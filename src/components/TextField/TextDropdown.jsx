@@ -39,7 +39,11 @@ function TextDropdown({ value, options, onChange }) {
 			{isOpen && (
 				<ul className={styles.dropdownList}>
 					{options.map((option, index) => (
-						<li key={index} onClick={() => handleSelect(option)}>
+						<li
+							key={index}
+							onClick={() => handleSelect(option)}
+							style={{ fontFamily: `${option}, sans-serif` }}
+						>
 							<p className={styles.dropdownOption}>{option}</p>
 						</li>
 					))}
