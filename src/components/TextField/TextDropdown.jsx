@@ -3,7 +3,7 @@ import styles from './TextDropdown.module.css';
 import arrowUp from '../../assets/icons/arrow_top.svg';
 import arrowDown from '../../assets/icons/arrow_down.svg';
 
-function TextDropdown({ value, options, onChange, error }) {
+function TextDropdown({ value, options, onChange }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const dropdownRef = useRef(null);
 

@@ -1,9 +1,3 @@
-.modalHeader {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
 .modalMessageCard {
 	background-color: var(--white);
 	border-radius: 16px;
@@ -11,14 +5,32 @@
 	padding: 24px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
+	align-items: center;
 	cursor: pointer;
+	width: 330px;
+	height: 500px;
+}
+
+.modalHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid var(--gray-300);
+	padding: 15px 0;
+	width: 100%;
+}
+
+.reactQuillBubble {
+	max-height: 200px;
+	overflow: scroll;
 }
 
 .modalSenderProfile {
 	display: grid;
 	grid-template-columns: 56px auto;
-	border-bottom: 1px solid var(--gray-200);
-	padding-bottom: 15px;
 	gap: 14px;
 }
 
@@ -69,15 +81,47 @@
 	background-color: var(--beige-100);
 }
 
-.modalMessageContent {
-	font-size: var(--font-15);
-	overflow-y: auto;
-	margin: 16px 0;
-	line-height: 22px;
-}
-
 .modalDate {
 	font-size: var(--font-12);
 	color: var(--gray-300);
 	text-align: left;
+}
+
+.reactQuillBubble {
+	max-width: 300px;
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+.modalButton {
+	width: 120px;
+	height: 40px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.modalMessageCard {
+		width: 600px;
+		height: 500px;
+	}
+
+	.reactQuillBubble {
+		width: 500px;
+		height: 300px;
+		max-width: 500px;
+		max-height: 300px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.modalMessageCard {
+		width: 600px;
+		height: 450px;
+	}
+
+	.reactQuillBubble {
+		width: 500px;
+		height: 250px;
+		max-width: 500px;
+		max-height: 250px;
+	}
 }

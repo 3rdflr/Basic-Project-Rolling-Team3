@@ -1,7 +1,7 @@
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 
-function TextEditor({ value, onChange }) {
+function TextEditor({ value, onChange, selectedFont }) {
 	const modules = {
 		toolbar: [
 			['bold', 'italic', 'underline'],
@@ -22,6 +22,11 @@ function TextEditor({ value, onChange }) {
 				formats={formats}
 				placeholder="내용을 입력해 주세요."
 			/>
+			<style jsx>{`
+				.ql-editor {
+					font-family: '${selectedFont}', sans-serif;
+				}
+			`}</style>
 		</div>
 	);
 }
