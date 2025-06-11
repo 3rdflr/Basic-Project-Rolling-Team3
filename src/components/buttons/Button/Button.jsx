@@ -12,7 +12,6 @@ function Button({
 	className,
 }) {
 	const buttonClass = classNames(
-		styles.button,
 		styles[variant],
 		styles[size],
 		{ [styles.disabled]: disabled },
@@ -20,7 +19,6 @@ function Button({
 	);
 	return (
 		<button type={type} className={buttonClass} disabled={disabled} onClick={onClick}>
-
 			<span>{children}</span>
 		</button>
 	);

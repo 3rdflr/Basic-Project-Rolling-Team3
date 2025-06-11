@@ -12,3 +12,48 @@
 	padding: 14px 24px;
 	z-index: 10;
 }
+
+.main {
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+	overflow: auto;
+	position: relative;
+}
+
+.wrapper {
+	padding: 0 24px;
+}
+
+.header {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 24px;
+	width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.main {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+}
+
+@media (min-width: 1024px) {
+	.header {
+		padding: 0;
+	}
+
+	.wrapper {
+		width: 1200px;
+		margin: 0 24px;
+		text-align: center;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+}

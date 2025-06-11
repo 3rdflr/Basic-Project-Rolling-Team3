@@ -1,6 +1,7 @@
 .messageList {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: 16px;
 }
 
@@ -9,15 +10,38 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 150px;
 	background-color: var(--white);
 	border-radius: 16px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
+	height: 200px;
 }
 
 .addButton {
 	color: var(--gray-500);
 	width: 40px;
 	height: 40px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.messageList {
+		display: grid;
+		grid-template-columns: repeat(2, 360px);
+	}
+
+	.addMessage {
+		height: 280px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.messageList {
+		display: grid;
+		grid-template-columns: repeat(3, 360px);
+		gap: 24px;
+	}
+
+	.addMessage {
+		height: 280px;
+	}
 }

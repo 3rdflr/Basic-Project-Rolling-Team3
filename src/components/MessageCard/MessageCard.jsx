@@ -21,26 +21,32 @@ const MessageCard = ({ message, onClick, onDelete, isEditMode }) => {
 	};
 	return (
 		<div className={styles.messageCard}>
-			<div className={styles.senderProfile}>
-				<img src={message.profileImageURL} alt="profile" className={styles.profileImage} />
-				<div className={styles.senderInfo}>
-					<p className={styles.sender}>From. {message.sender}</p>
-					<span className={`${styles.relationship} ${getRelationshipClass(message.relationship)}`}>
-						{message.relationship}
-					</span>
+			<div>
+				<div className={styles.senderProfile}>
+					<img src={message.profileImageURL} alt="profile" className={styles.profileImage} />
+					<div className={styles.senderInfo}>
+						<p className={styles.sender}>From. {message.sender}</p>
+						<span
+							className={`${styles.relationship} ${getRelationshipClass(message.relationship)}`}
+						>
+							{message.relationship}
+						</span>
+					</div>
+					{isEditMode && (
+						<button className={styles.deleteButton} onClick={() => onDelete(message.id)}>
+							<FaRegTrashCan />
+						</button>
+					)}
 				</div>
-				{isEditMode && (
-					<button className={styles.deleteButton} onClick={() => onDelete(message.id)}>
-						<FaRegTrashCan />
-					</button>
-				)}
+				<ReactQuill
+					value={message.content}
+					readOnly={true}
+					theme="bubble"
+					modules={{ toolbar: false }}
+					className={styles.reactQuillBubble}
+				/>
 			</div>
-			<ReactQuill
-				value={message.content}
-				readOnly={true}
-				theme="bubble"
-				modules={{ toolbar: false }}
-			/>
+
 			<div className={styles.footer}>
 				<p className={styles.date}>{formatDate(message.createdAt)}</p>
 				<p className={styles.viewDetail} onClick={() => onClick?.(message)}>
