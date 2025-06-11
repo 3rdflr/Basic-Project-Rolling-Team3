@@ -23,7 +23,7 @@ const AddEmojiButton = ({ recipientId, onReactionAdded, isOpen, toggleOpen }) =>
 	return (
 		<div className={styles.container}>
 			<button className={styles.addButton} onClick={toggleOpen}>
-				<img src={AddEmojiIcon} alt="이모지 추가 아이콘" />{' '}
+				<img src={AddEmojiIcon} alt="이모지 추가 아이콘" />
 				<span className={styles.buttonText}>추가</span>
 			</button>
 			{isOpen && (

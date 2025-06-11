@@ -29,10 +29,10 @@ const RecipientHeader = ({
 		<div className={styles.header}>
 			<h1 className={styles.recipient}>To. {name}</h1>
 			<div className={styles.headerItems} ref={dropdownRef}>
-				<div>
+				<div className={styles.authorStatus}>
 					<ProfileImg count={messageCount} data={recentMessages} />
 					<span>
-						<span>{messageCount}</span>명이 작성했어요!
+						<span className={styles.authorStatusCount}>{messageCount}</span>명이 작성했어요!
 					</span>
 				</div>
 				<BadgeList

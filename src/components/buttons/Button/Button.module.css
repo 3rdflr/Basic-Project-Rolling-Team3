@@ -41,14 +41,11 @@
 }
 
 .small {
-	border: none;
-	outline: none;
-	background-color: var(--purple-600);
+	border: 1px solid var(--gray-300);
+	background-color: var(--white);
 	border-radius: 10px;
-	color: var(--white);
+	color: var(--black);
 	font-size: var(--font-14);
-	font-weight: var(--font-bold);
-	font-size: 12px;
 	padding: 4px 8px;
 }
 
