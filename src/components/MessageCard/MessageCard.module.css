@@ -89,6 +89,20 @@
 	text-align: left;
 }
 
+.fontPretendard :global(.ql-editor) {
+	font-family: 'Pretendard', sans-serif !important;
+}
+
+.fontNotoSans :global(.ql-editor) {
+	font-family: 'Noto Sans', sans-serif !important;
+}
+.fontNanumHandwriting :global(.ql-editor) {
+	font-family: '나눔손글씨 손편지체', sans-serif !important;
+}
+.fontNanumMyeongjo :global(.ql-editor) {
+	font-family: '나눔명조', serif !important;
+}
+
 .viewDetail {
 	cursor: pointer;
 }

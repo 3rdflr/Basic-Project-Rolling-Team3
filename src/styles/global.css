@@ -8,41 +8,28 @@ html {
 
 @font-face {
 	font-family: 'Noto Sans';
-	src: url('../assets/fonts/NotoSansKR-VariableFont_wght.ttf') format('truetype');
+	src: url('/NotoSansKR-VariableFont_wght.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: '나눔손글씨 손편지체';
-	src: url('../assets/fonts/NanumBrush.ttf') format('truetype');
+	src: url('/NanumBrush.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: '나눔명조';
-	src: url('../assets/fonts/NanumMyeongjo.ttf') format('truetype');
+	src: url('/NanumMyeongjo.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Pretendard';
-	src: url('../assets/fonts/Pretendard-Regular.woff') format('truetype');
+	src: url('/Pretendard-Regular.woff') format('truetype');
 	font-weight: normal;
 	font-style: normal;
-}
-
-.ql-container .ql-editor.fontPretendard {
-	font-family: 'Pretendard', sans-serif !important;
-}
-.ql-container .ql-editor.fontNotoSans {
-	font-family: 'Noto Sans', sans-serif !important;
-}
-.ql-container .ql-editor.fontNanumHandwriting {
-	font-family: '나눔손글씨 손편지체', sans-serif !important;
-}
-.ql-container .ql-editor.fontNanumMyeongjo {
-	font-family: '나눔명조', serif !important;
 }
