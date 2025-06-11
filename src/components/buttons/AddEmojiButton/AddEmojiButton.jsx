@@ -15,7 +15,6 @@ const AddEmojiButton = ({ recipientId, onReactionAdded, isOpen, toggleOpen }) =>
 			await recipientsAPI.createRecipientsReaction(recipientId, body);
 
 			onReactionAdded?.();
-			setOpenToggle(false);
 		} catch (error) {
 			console.error('이모지 추가 실패:', error);
 		}

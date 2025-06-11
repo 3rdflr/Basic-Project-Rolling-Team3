@@ -64,14 +64,17 @@ const RollingPaperPage = () => {
 	if (loadingRecipient || loadingReactions) return <div>로딩 중...</div>;
 	if (errorRecipient || errorReactions) return <div>에러 발생!</div>;
 
-	const { topReactions, name, backgroundColor, backgroundImageURL } = recipientData;
+	const { topReactions, name, backgroundColor, backgroundImageURL, messageCount, recentMessages } =
+		recipientData;
 	const allReactions = reactionData || [];
 
 	return (
 		<div>
+			{screenSize !== 'sm' && <Header />}
 			<header className={styles.header}>
-				{screenSize !== 'sm' && <Header />}
 				<RecipientHeader
+					messageCount={messageCount}
+					recentMessages={recentMessages}
 					topReactions={topReactions}
 					name={name}
 					recipientId={recipientId}
