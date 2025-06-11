@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { useState, useEffect } from 'react';
 import styles from './MessagesPage.module.css';
 import Header from '../../components/headers/Header/Header';
@@ -11,6 +12,7 @@ import { TEAM } from '../../constants/endPoints';
 import { recipientsAPI } from '../../api/index.js';
 import { useNavigate, useParams } from 'react-router-dom';
 import TextEditor from '../../components/TextEditor/TextEditor.jsx';
+import { useScreenSize } from '../../hooks/useScreenSize';
 
 function MessagePage() {
 	const [sender, setSender] = useState('');
@@ -32,6 +34,9 @@ function MessagePage() {
 
 	const [content, setContent] = useState('');
 
+	const screenSize = useScreenSize();
+	const buttonSize = screenSize === 'sm' ? 'primary' : 'large';
+
 	console.log(id);
 
 	useEffect(() => {
@@ -50,7 +55,7 @@ function MessagePage() {
 		};
 
 		fetchData();
-	}, [fetchProfiles]);
+	}, []);
 
 	//로딩 작동하는지 다시 확인해봐야함.
 	if (isLoading) {
@@ -80,7 +85,7 @@ function MessagePage() {
 				font: selectedFont,
 			};
 			await postMessage(recipientId, data);
-			console.log('메세지가 전송되었습니다!', data); // 토스트로 변경할 수도 있음.
+			console.log('메세지가 전송되었습니다!', data);
 			navigate(`/post/${id}`, { replace: true });
 		} catch (err) {
 			console.error('메세지 전송 실패:', err);
@@ -89,11 +94,14 @@ function MessagePage() {
 
 	return (
 		<>
+			<Helmet>
+				<title>Rolling | Message</title>
+			</Helmet>
 			<Header isForm={true} />
 			<div className={styles.container}>
 				<form onSubmit={handleSubmit} className={styles.form}>
 					<div>
-						<h2 className={styles.h2}>From</h2>
+						<h2 className={styles.h2}>From.</h2>
 						<div className={styles.inputContainer}>
 							<TextInput
 								value={sender}
@@ -111,13 +119,14 @@ function MessagePage() {
 								}}
 								error={senderError}
 								errorMessage={'1~40자 사이 이름을 입력해주세요'}
+								maxLength={40}
 							/>
 							<span className={styles.charCount}>{sender.length} / 40</span>
 						</div>
 					</div>
-					<div>
+					<div className={styles.profilesection}>
 						<h2 className={styles.h2}>프로필 이미지</h2>
-						<p className={styles.p}>프로필 이미지를 선택해주세요!</p>
+						<p className={styles.profilep}>프로필 이미지를 선택해주세요!</p>
 						<div className={styles.wrapper}>
 							<div className={styles.profilepreview}>
 								{/* 선택된 이미지 크게 보여주기(왼쪽에 위치하도록) */}
@@ -164,13 +173,7 @@ function MessagePage() {
 						<TextDropdown options={font} value={selectedFont} onChange={setSelectedFont} />
 					</div>
 					<div className={styles.button}>
-						<Button
-							type="submit"
-							classStyle="primary"
-							extraClass="wideButton"
-							children="생성하기"
-							disabled={!sender.trim()}
-						/>
+						<Button type="submit" size={buttonSize} children="생성하기" disabled={!sender.trim()} />
 					</div>
 				</form>
 			</div>
