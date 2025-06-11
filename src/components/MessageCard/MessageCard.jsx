@@ -3,6 +3,7 @@ import styles from './MessageCard.module.css';
 import { formatDate } from '@/utils/date';
 import ReactQuill from 'react-quill-new';
 import { FaRegTrashCan } from 'react-icons/fa6';
+import classNames from 'classnames';
 
 const MessageCard = ({ message, onClick, onDelete, isEditMode }) => {
 	const getRelationshipClass = relationship => {
@@ -19,6 +20,22 @@ const MessageCard = ({ message, onClick, onDelete, isEditMode }) => {
 				return '';
 		}
 	};
+
+	const getFontClass = font => {
+		switch (font) {
+			case 'Pretendard':
+				return styles.fontPretendard;
+			case 'Noto Sans':
+				return styles.fontNotoSans;
+			case '나눔손글씨 손편지체':
+				return styles.fontNanumHandwriting;
+			case '나눔명조':
+				return styles.fontNanumMyeongjo;
+			default:
+				return '';
+		}
+	};
+
 	return (
 		<div className={styles.messageCard}>
 			<div>
@@ -43,7 +60,7 @@ const MessageCard = ({ message, onClick, onDelete, isEditMode }) => {
 					readOnly={true}
 					theme="bubble"
 					modules={{ toolbar: false }}
-					className={styles.reactQuillBubble}
+					className={classNames(getFontClass(message.font), styles.reactQuillBubble)}
 				/>
 			</div>
 
