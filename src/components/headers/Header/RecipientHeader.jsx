@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import ProfileImg from '../../Badge/ProfileImg';
 import ShareButton from '../../buttons/ShareButton/ShareButton';
 import BadgeList from '../../BadgeList/BadgeList';
 import AddEmojiButton from '../../buttons/AddEmojiButton/AddEmojiButton';
@@ -6,7 +7,15 @@ import useClickOutside from '../../../hooks/useClickOutside';
 
 import styles from './RecipientHeader.module.css';
 
-const RecipientHeader = ({ name, topReactions, allReactions, recipientId, onReactionAdded }) => {
+const RecipientHeader = ({
+	name,
+	topReactions,
+	allReactions,
+	recipientId,
+	onReactionAdded,
+	messageCount,
+	recentMessages,
+}) => {
 	const [openToggle, setOpenToggle] = useState(false);
 	const dropdownRef = useRef(false);
 
@@ -20,6 +29,12 @@ const RecipientHeader = ({ name, topReactions, allReactions, recipientId, onReac
 		<div className={styles.header}>
 			<h1 className={styles.recipient}>To. {name}</h1>
 			<div className={styles.headerItems} ref={dropdownRef}>
+				<div>
+					<ProfileImg count={messageCount} data={recentMessages} />
+					<span>
+						<span>{messageCount}</span>명이 작성했어요!
+					</span>
+				</div>
 				<BadgeList
 					topReactions={topReactions}
 					allReactions={allReactions}
