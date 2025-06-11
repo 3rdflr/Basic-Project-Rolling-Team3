@@ -12,6 +12,8 @@
 }
 
 .modalBox {
+	display: flex;
+	justify-content: center;
 	border-radius: 8px;
 	margin: 0 20px;
 	position: relative;

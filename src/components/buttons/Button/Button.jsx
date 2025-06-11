@@ -12,7 +12,6 @@ function Button({
 	className,
 }) {
 	const buttonClass = classNames(
-		styles.button,
 		styles[variant],
 		styles[size],
 		{ [styles.disabled]: disabled },

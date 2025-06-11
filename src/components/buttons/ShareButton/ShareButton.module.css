@@ -30,6 +30,7 @@
 	flex-direction: column;
 	justify-content: center;
 	background-color: var(--white);
+	z-index: var(--zindex-high);
 }
 
 .dropdown li {

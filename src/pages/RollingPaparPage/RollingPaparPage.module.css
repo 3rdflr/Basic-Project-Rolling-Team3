@@ -12,3 +12,33 @@
 	padding: 14px 24px;
 	z-index: 10;
 }
+
+.main {
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+	overflow: auto;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.header {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 24px;
+	width: 100%;
+}
+
+.wrapper {
+	width: 1200px;
+	margin: 0 24px;
+	text-align: center;
+}
+
+@media (min-width: 1248px) {
+	.header {
+		padding: 0;
+	}
+}

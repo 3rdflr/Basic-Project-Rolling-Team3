@@ -11,7 +11,14 @@
 	padding: 24px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	cursor: pointer;
+}
+
+.reactQuillBubble {
+	max-height: 200px;
+	overflow: scroll;
 }
 
 .modalSenderProfile {
@@ -69,15 +76,27 @@
 	background-color: var(--beige-100);
 }
 
-.modalMessageContent {
-	font-size: var(--font-15);
-	overflow-y: auto;
-	margin: 16px 0;
-	line-height: 22px;
-}
-
 .modalDate {
 	font-size: var(--font-12);
 	color: var(--gray-300);
 	text-align: left;
+}
+
+.modalButton {
+	width: 120px;
+	height: 40px;
+}
+
+@media (min-width: 768px) {
+	.modalMessageCard {
+		margin: 0 84px;
+		height: 500px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.modalMessageCard {
+		width: 600px;
+		height: 450px;
+	}
 }

@@ -5,11 +5,18 @@
 	padding: 24px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+	height: 300px;
+}
+
+.reactQuillBubble {
+	max-height: 100px;
+	overflow: hidden;
 }
 
 .senderProfile {
 	display: grid;
-	grid-template-columns: 56px auto auto;
+	grid-template-columns: 56px auto max-content;
 	border-bottom: 1px solid var(--gray-200);
 	padding-bottom: 15px;
 	gap: 14px;
@@ -25,6 +32,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+	align-items: baseline;
 }
 
 .sender {
@@ -68,7 +76,6 @@
 	padding: 8px;
 	width: 40px;
 	height: 40px;
-	z-index: var(--zindex-high);
 }
 
 .footer {

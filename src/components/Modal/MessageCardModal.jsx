@@ -21,29 +21,32 @@ const MessageCardModal = ({ message, onClick, onClose }) => {
 	};
 	return (
 		<div className={styles.modalMessageCard} onClick={() => onClick?.(message)}>
-			<div className={styles.modalHeader}>
-				<div className={styles.modalSenderProfile}>
-					<img src={message.profileImageURL} alt="profile" className={styles.modalProfileImage} />
-					<div className={styles.modalSenderInfo}>
-						<p className={styles.modalSender}>From. {message.sender}</p>
-						<span
-							className={`${styles.modalRelationship} ${getRelationshipClass(
-								message.relationship
-							)}`}
-						>
-							{message.relationship}
-						</span>
+			<div>
+				<div className={styles.modalHeader}>
+					<div className={styles.modalSenderProfile}>
+						<img src={message.profileImageURL} alt="profile" className={styles.modalProfileImage} />
+						<div className={styles.modalSenderInfo}>
+							<p className={styles.modalSender}>From. {message.sender}</p>
+							<span
+								className={`${styles.modalRelationship} ${getRelationshipClass(
+									message.relationship
+								)}`}
+							>
+								{message.relationship}
+							</span>
+						</div>
 					</div>
+					<p className={styles.modalDate}>{formatDate(message.createdAt)}</p>
 				</div>
-				<p className={styles.modalDate}>{formatDate(message.createdAt)}</p>
+				<ReactQuill
+					value={message.content}
+					readOnly={true}
+					theme="bubble"
+					modules={{ toolbar: false }}
+					className={styles.reactQuillBubble}
+				/>
 			</div>
-			<ReactQuill
-				value={message.content}
-				readOnly={true}
-				theme="bubble"
-				modules={{ toolbar: false }}
-			/>
-			<Button classStyle="primary" onClick={onClose}>
+			<Button size="small" onClick={onClose} className={styles.modalButton}>
 				확인
 			</Button>
 		</div>
