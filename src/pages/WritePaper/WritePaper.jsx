@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import Header from '../../components/headers/Header/Header';
 import TextInput from '../../components/TextField/TextInput';
@@ -8,7 +9,7 @@ import useFetch from '../../hooks/useFetch';
 import { recipientsAPI } from '../../api/index.js';
 import { TEAM } from '../../constants/endPoints';
 import { useNavigate } from 'react-router';
-import classNames from 'classnames';
+import { useScreenSize } from '../../hooks/useScreenSize';
 
 function WritePaper() {
 	const [name, setName] = useState('');
@@ -17,6 +18,9 @@ function WritePaper() {
 		backgroundColor: 'beige',
 		backgroundImageURL: '',
 	});
+
+	const screenSize = useScreenSize();
+	const buttonSize = screenSize === 'sm' ? 'primary' : 'large';
 
 	const [nameError, setNameError] = useState(false);
 
@@ -66,11 +70,14 @@ function WritePaper() {
 
 	return (
 		<>
+			<Helmet>
+				<title>Rolling | Post</title>
+			</Helmet>
 			<Header isForm={true} />
 			<div className={styles.container}>
 				<form onSubmit={handleSubmit} className={styles.form}>
 					<div className={styles.inputarea}>
-						<h2 className={styles.h2}>To</h2>
+						<h2 className={styles.h2}>To.</h2>
 						<div className={styles.inputContainer}>
 							<TextInput
 								className={styles.input}
@@ -92,6 +99,7 @@ function WritePaper() {
 								placeholder="받는 사람 이름을 입력해 주세요"
 								error={nameError}
 								errorMessage="1~40자 사이 이름을 입력해주세요"
+								maxLength={40}
 							/>
 							<span className={styles.charCount}>{name.length} / 40</span>
 						</div>
@@ -108,13 +116,7 @@ function WritePaper() {
 						/>
 					</div>
 					<div className={styles.button}>
-						<Button
-							type="submit"
-							classStyle="primary"
-							extraClass="wideButton"
-							children="생성하기"
-							disabled={!name.trim()}
-						/>
+						<Button type="submit" size={buttonSize} children="생성하기" disabled={!name.trim()} />
 					</div>
 				</form>
 			</div>
