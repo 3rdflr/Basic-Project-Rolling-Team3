@@ -9,7 +9,10 @@ function useRecipientMessages(recipientId) {
 	useEffect(() => {
 		const fetchMessages = async () => {
 			try {
-				const messages = await recipientsAPI.getRecipientsMessages(recipientId);
+				const messages = await recipientsAPI.getRecipientsMessages(recipientId, {
+					limit: 100,
+					offset: 0,
+				});
 				setData(messages);
 			} catch (error) {
 				console.error('메시지 불러오기 실패:', error);
