@@ -2,7 +2,7 @@ import styles from './TextInput.module.css';
 
 function TextInput({ type, value, placeholder, onChange, error, errorMessage, onBlur, maxLength }) {
 	return (
-		<div>
+		<div className={styles.wrapper}>
 			<input
 				className={`${styles.container} ${error && styles.error}`}
 				type={type}
@@ -10,9 +10,11 @@ function TextInput({ type, value, placeholder, onChange, error, errorMessage, on
 				placeholder={placeholder}
 				onChange={onChange}
 				onBlur={onBlur}
-				maxLength={40}
+				maxLength={maxLength}
 			/>
-			{error && <div className={styles.errorMessage}>{errorMessage}</div>}
+			<div className={styles.feedback}>
+				{error && <div className={styles.errorMessage}>{errorMessage}</div>}
+			</div>
 		</div>
 	);
 }

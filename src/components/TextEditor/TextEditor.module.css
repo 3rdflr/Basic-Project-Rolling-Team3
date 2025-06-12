@@ -1,0 +1,11 @@
+.editor :global(.ql-editor) {
+	width: 320px;
+	height: 220px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.editor :global(.ql-editor) {
+		width: 720px;
+	}
+}

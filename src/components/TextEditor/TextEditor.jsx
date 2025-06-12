@@ -1,5 +1,6 @@
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+import styles from './TextEditor.module.css';
 
 function TextEditor({ value, onChange, selectedFont }) {
 	const modules = {
@@ -14,7 +15,7 @@ function TextEditor({ value, onChange, selectedFont }) {
 	const formats = ['bold', 'italic', 'underline', 'align', 'list', 'color'];
 
 	return (
-		<div>
+		<div className={styles.editor}>
 			<ReactQuill
 				value={value}
 				onChange={onChange}

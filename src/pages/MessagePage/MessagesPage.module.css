@@ -11,7 +11,7 @@
 	font-size: var(--font-24);
 	font-weight: var(--font-bold);
 	margin-top: 20px;
-	margin-bottom: 3px;
+	margin-bottom: 8px;
 }
 
 .p {
@@ -20,6 +20,20 @@
 	color: var(--gray-500);
 	line-height: 26px;
 	letter-spacing: -1%;
+}
+
+.profilesection {
+	position: relative;
+}
+
+.profilep {
+	position: absolute;
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+	color: var(--gray-500);
+	line-height: 26px;
+	letter-spacing: -1%;
+	margin-left: 115px;
 }
 
 .form {
@@ -63,8 +77,10 @@
 /* 썸네일 이미지 리스트(간격 조정 필요) */
 .profilethumbnails {
 	display: grid;
-	grid-template-columns: repeat(5, 40px);
+	grid-template-columns: repeat(5, 1fr);
 	gap: 3px;
+	margin-top: 25px;
+	margin-left: 15px;
 }
 
 /* 썸네일 개별 이미지 (백그라운드이미지로 바꿀 필요있음)*/
@@ -92,4 +108,30 @@
 .button {
 	margin-top: 60px;
 	margin-bottom: 30px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.profilethumbnails {
+		display: flex;
+	}
+	.thumbnail {
+		width: 56px;
+		height: 56px;
+	}
+	.profilep {
+		margin-left: 170px;
+		margin-top: 10px;
+	}
+	.profilethumbnails {
+		margin-top: 35px;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.primary {
+		bottom: 40px;
+		width: 280px;
+	}
 }
