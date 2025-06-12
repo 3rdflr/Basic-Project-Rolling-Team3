@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import ProfileImg from '../../Badge/ProfileImg';
 import ShareButton from '../../buttons/ShareButton/ShareButton';
 import BadgeList from '../../BadgeList/BadgeList';
@@ -16,6 +16,7 @@ const RecipientHeader = ({
 	onReactionAdded,
 	messageCount,
 	recentMessages,
+	loadingReactions,
 }) => {
 	const [openToggle, setOpenToggle] = useState(false);
 	const dropdownRef = useRef(false);
@@ -23,9 +24,9 @@ const RecipientHeader = ({
 
 	useClickOutside(dropdownRef, () => setOpenToggle(false));
 
-	const handleToggle = name => {
+	const handleToggle = useCallback(name => {
 		setOpenToggle(prev => (prev === name ? false : name));
-	};
+	}, []);
 
 	return (
 		<div className={styles.header}>
@@ -45,6 +46,7 @@ const RecipientHeader = ({
 					allReactions={allReactions}
 					isOpen={openToggle === 'badge'}
 					toggleOpen={() => handleToggle('badge')}
+					isLoading={loadingReactions}
 				/>
 				<AddEmojiButton
 					recipientId={recipientId}
