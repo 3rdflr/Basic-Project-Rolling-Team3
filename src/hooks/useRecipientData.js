@@ -17,7 +17,9 @@ function useRecipientData(recipientId) {
 			} catch (e) {
 				setError(e);
 			} finally {
-				setIsLoading(false);
+				setTimeout(() => {
+					setIsLoading(false);
+				}, 500);
 			}
 		};
 

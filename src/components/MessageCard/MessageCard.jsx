@@ -42,7 +42,9 @@ const MessageCard = ({ message, onClick, onDelete, isEditMode }) => {
 				<div className={styles.senderProfile}>
 					<img src={message.profileImageURL} alt="profile" className={styles.profileImage} />
 					<div className={styles.senderInfo}>
-						<p className={styles.sender}>From. {message.sender}</p>
+						<p className={styles.sender}>
+							From. <span className={styles.senderName}>{message.sender}</span>
+						</p>
 						<span
 							className={`${styles.relationship} ${getRelationshipClass(message.relationship)}`}
 						>

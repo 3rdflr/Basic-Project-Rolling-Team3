@@ -11,7 +11,6 @@
 	align-items: center;
 	cursor: pointer;
 	width: 330px;
-	height: 500px;
 }
 
 .modalHeader {
@@ -21,11 +20,6 @@
 	border-bottom: 1px solid var(--gray-300);
 	padding: 15px 0;
 	width: 100%;
-}
-
-.reactQuillBubble {
-	max-height: 200px;
-	overflow: scroll;
 }
 
 .modalSenderProfile {
@@ -88,40 +82,25 @@
 }
 
 .reactQuillBubble {
-	max-width: 300px;
-	max-height: 300px;
-	overflow-y: scroll;
+	width: 300px;
+	height: 300px;
+	overflow-y: auto;
 }
 
 .modalButton {
 	width: 120px;
 	height: 40px;
+	background-color: var(--purple-600);
+	color: var(--white);
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) {
 	.modalMessageCard {
 		width: 600px;
 		height: 500px;
 	}
 
 	.reactQuillBubble {
-		width: 500px;
-		height: 300px;
-		max-width: 500px;
-		max-height: 300px;
-	}
-}
-
-@media (min-width: 1024px) {
-	.modalMessageCard {
-		width: 600px;
-		height: 450px;
-	}
-
-	.reactQuillBubble {
-		width: 500px;
-		height: 250px;
-		max-width: 500px;
-		max-height: 250px;
+		width: 520px;
 	}
 }
