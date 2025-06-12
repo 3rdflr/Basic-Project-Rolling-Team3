@@ -37,8 +37,6 @@ function MessagePage() {
 	const screenSize = useScreenSize();
 	const buttonSize = screenSize === 'sm' ? 'primary' : sender.trim() ? 'large' : 'largeDisabled';
 
-	console.log(id);
-
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
