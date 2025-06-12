@@ -1,11 +1,13 @@
 .header {
 	display: flex;
 	flex-direction: column;
+	width: 320px;
 }
 
 .authorStatus {
 	display: flex;
 	align-items: center;
+	font-size: 18px;
 }
 
 .authorStatusCount {
@@ -13,7 +15,7 @@
 }
 
 .recipient {
-	font-size: var(--font-18);
+	font-size: 28px;
 	font-weight: var(--font-bold);
 	line-height: 28px;
 	padding: 8px 0;
@@ -30,12 +32,31 @@
 
 @media (min-width: 768px) {
 	.header {
+		display: flex;
 		flex-direction: row;
-		align-items: center;
 		justify-content: space-between;
+		width: 720px;
 	}
+
+	.headerItems {
+		width: 425px;
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 1200px;
+	}
+
 	.headerItems {
 		display: flex;
+		width: 670px;
 		gap: 12px;
 	}
 }

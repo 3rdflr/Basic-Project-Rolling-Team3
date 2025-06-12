@@ -32,7 +32,7 @@ const RecipientHeader = ({
 		<div className={styles.header}>
 			<h1 className={styles.recipient}>To. {name}</h1>
 			<div className={styles.headerItems} ref={dropdownRef}>
-				{screenSize !== 'sm' && (
+				{screenSize == 'lg' && (
 					<div className={styles.authorStatus}>
 						<ProfileImg count={messageCount} data={recentMessages} />
 						<span>
