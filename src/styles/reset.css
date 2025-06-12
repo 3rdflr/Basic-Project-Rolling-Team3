@@ -99,16 +99,20 @@ menu,
 nav,
 section {
 	display: block;
+	display: block;
 }
 body {
+	/*line-height: 1;*/
 	/*line-height: 1;*/
 }
 ol,
 ul {
 	list-style: none;
+	list-style: none;
 }
 blockquote,
 q {
+	quotes: none;
 	quotes: none;
 }
 blockquote:before,
@@ -117,19 +121,33 @@ q:before,
 q:after {
 	content: '';
 	content: none;
+	content: '';
+	content: none;
 }
 table {
+	border-collapse: collapse;
+	border-spacing: 0;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 input:focus {
 	outline: none;
+	outline: none;
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	border: none;
+	outline: none;
+	background-color: inherit;
+	cursor: pointer;
 }
 
 button {
