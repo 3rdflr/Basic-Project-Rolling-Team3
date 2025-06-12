@@ -4,8 +4,10 @@ import ListPage from './pages/ListPage/ListPage.jsx';
 import WritePaper from './pages/WritePaper/WritePaper';
 import RollingPaperPage from './pages/RollingPaparPage/RollingPaperPage';
 import MessagePage from './pages/MessagePage/MessagePage.jsx';
+import useKakaoSdk from './hooks/useKakaoSdk.js';
 
 function App() {
+	useKakaoSdk();
 	return (
 		<BrowserRouter>
 			<Routes>
