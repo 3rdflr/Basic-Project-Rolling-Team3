@@ -55,10 +55,6 @@ function ListPage() {
 		return sortRecent([...recipients]).slice(0, SLICE_NUM);
 	}, [recipients]);
 
-	console.log('원본 카드 데이터:', recipients);
-	console.log('인기순 카드 데이터:', hottest);
-	console.log('최신순 카드 데이터:', resent);
-
 	if (isLoading) {
 		return (
 			<>

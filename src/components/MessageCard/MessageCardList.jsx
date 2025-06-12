@@ -7,7 +7,7 @@ import MessageCard from './MessageCard';
 import MessageCardModal from '../Modal/MessageCardModal';
 import useDeleteRecipientMessage from '../../hooks/useDeleteRecipientMessage';
 
-const MessageCardList = ({ messages, id, isEditMode }) => {
+const MessageCardList = ({ messages, id, isEditMode, isLoadingMessagesCard }) => {
 	const [selectedMessage, setSelectedMessage] = useState(null);
 	const [messagesState, setMessagesState] = useState(messages);
 
@@ -42,6 +42,7 @@ const MessageCardList = ({ messages, id, isEditMode }) => {
 					onClick={openModal}
 					onDelete={handleDelete}
 					isEditMode={isEditMode}
+					isLoadingMessagesCard={isLoadingMessagesCard}
 				/>
 			))}
 			{selectedMessage && (

@@ -121,7 +121,12 @@ const RollingPaperPage = () => {
 							롤링페이퍼 삭제하기
 						</Button>
 					)}
-					<MessageCardList messages={messagesCardData} id={recipientId} isEditMode={isEditMode} />
+					<MessageCardList
+						messages={messagesCardData}
+						id={recipientId}
+						isEditMode={isEditMode}
+						isLoadingMessagesCard={isLoadingMessagesCard}
+					/>
 				</div>
 			</main>
 		</div>
