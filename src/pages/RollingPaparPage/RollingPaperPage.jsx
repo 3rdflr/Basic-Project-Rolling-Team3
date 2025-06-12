@@ -13,6 +13,7 @@ import { useState } from 'react';
 import useDeleteRecipient from '../../hooks/useDeleteRecipient';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import Keyframes from '../../components/animation/logoAnimation';
+import LinkButton from '../../components/buttons/Button/LinkButton';
 
 const RollingPaperPage = () => {
 	const { id: recipientId } = useParams();
@@ -78,8 +79,8 @@ const RollingPaperPage = () => {
 
 	return (
 		<div>
+			{screenSize !== 'sm' && <Header isForm={true} />}
 			<header className={styles.header}>
-				{screenSize !== 'sm' && <Header />}
 				<RecipientHeader
 					messageCount={messageCount}
 					recentMessages={recentMessages}
@@ -99,9 +100,9 @@ const RollingPaperPage = () => {
 			>
 				<div className={styles.wrapper}>
 					<div className={styles.buttonItems}>
-						<Link to="/list">
-							<Button variant="small">뒤로 가기</Button>
-						</Link>
+						<LinkButton variant="small" linkTo="/list">
+							뒤로 가기
+						</LinkButton>
 						<Button variant="small" onClick={toggleEditMode}>
 							{isEditMode ? '편집완료' : '편집하기'}
 						</Button>
