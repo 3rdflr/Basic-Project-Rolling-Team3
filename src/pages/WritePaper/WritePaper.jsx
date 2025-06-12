@@ -20,7 +20,7 @@ function WritePaper() {
 	});
 
 	const screenSize = useScreenSize();
-	const buttonSize = screenSize === 'sm' ? 'primary' : 'large';
+	const buttonSize = screenSize === 'sm' ? 'primary' : name.trim() ? 'large' : 'largeDisabled';
 
 	const [nameError, setNameError] = useState(false);
 
@@ -116,7 +116,12 @@ function WritePaper() {
 						/>
 					</div>
 					<div className={styles.button}>
-						<Button type="submit" size={buttonSize} children="생성하기" disabled={!name.trim()} />
+						<Button
+							type="submit"
+							variant={buttonSize}
+							children="생성하기"
+							disabled={!name.trim()}
+						/>
 					</div>
 				</form>
 			</div>
