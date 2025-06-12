@@ -3,6 +3,7 @@ import styles from './MessageCardModal.module.css';
 import { formatDate } from '../../utils/date';
 import Button from '../buttons/Button/Button';
 import ReactQuill from 'react-quill-new';
+import classNames from 'classnames';
 
 const MessageCardModal = ({ message, onClick, onClose }) => {
 	const getRelationshipClass = relationship => {
@@ -19,6 +20,22 @@ const MessageCardModal = ({ message, onClick, onClose }) => {
 				return '';
 		}
 	};
+
+	const getFontClass = font => {
+		switch (font) {
+			case 'Pretendard':
+				return styles.fontPretendard;
+			case 'Noto Sans':
+				return styles.fontNotoSans;
+			case '나눔손글씨 손편지체':
+				return styles.fontNanumHandwriting;
+			case '나눔명조':
+				return styles.fontNanumMyeongjo;
+			default:
+				return '';
+		}
+	};
+
 	return (
 		<div className={styles.modalMessageCard} onClick={() => onClick?.(message)}>
 			<div>
@@ -43,7 +60,7 @@ const MessageCardModal = ({ message, onClick, onClose }) => {
 					readOnly={true}
 					theme="bubble"
 					modules={{ toolbar: false }}
-					className={styles.reactQuillBubble}
+					className={classNames(getFontClass(message.font), styles.reactQuillBubble)}
 				/>
 			</div>
 			<Button size="small" onClick={onClose} className={styles.modalButton}>

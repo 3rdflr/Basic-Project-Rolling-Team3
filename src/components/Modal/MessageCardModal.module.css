@@ -94,6 +94,24 @@
 	color: var(--white);
 }
 
+.fontPretendard :global(.ql-editor) {
+	font-family: 'Pretendard', sans-serif !important;
+	font-size: 15px !important;
+}
+
+.fontNotoSans :global(.ql-editor) {
+	font-family: 'Noto Sans', sans-serif !important;
+	font-size: 15px !important;
+}
+.fontNanumHandwriting :global(.ql-editor) {
+	font-family: '나눔손글씨 손편지체', sans-serif !important;
+	font-size: 15px !important;
+}
+.fontNanumMyeongjo :global(.ql-editor) {
+	font-family: '나눔명조', serif !important;
+	font-size: 15px !important;
+}
+
 @media (min-width: 768px) {
 	.modalMessageCard {
 		width: 600px;

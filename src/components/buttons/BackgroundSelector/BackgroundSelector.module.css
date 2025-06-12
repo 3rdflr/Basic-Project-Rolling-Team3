@@ -83,6 +83,7 @@
 	border-radius: 16px;
 	background-size: cover;
 	background-position: center;
+	background-color: var(--gray-300);
 }
 
 .selected {
