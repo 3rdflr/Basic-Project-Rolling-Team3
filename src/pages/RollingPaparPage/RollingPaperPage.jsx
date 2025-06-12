@@ -7,6 +7,7 @@ import useRecipientReactions from '../../hooks/useRecipientReactions';
 import useRecipientMessages from '../../hooks/useRecipientsMessages';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/buttons/Button/Button';
+import { Helmet } from 'react-helmet';
 
 import styles from './RollingPaparPage.module.css';
 import { useState, useCallback } from 'react';
@@ -84,6 +85,10 @@ const RollingPaperPage = () => {
 
 	return (
 		<div>
+			<Helmet>
+				<title>{name}의 RollingPaper</title>
+				<link rel="icon" href="/LogoIcon.png" />
+			</Helmet>
 			{screenSize !== 'sm' && <Header isForm={true} />}
 			<header className={styles.header}>
 				<RecipientHeader
