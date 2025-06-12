@@ -5,7 +5,7 @@ import AddEmojiIcon from '../../../assets/icons/AddEmojiIcon.svg';
 
 import styles from './AddEmojiButton.module.css';
 
-const AddEmojiButton = ({ recipientId, onReactionAdded, isOpen, toggleOpen }) => {
+const AddEmojiButton = ({ recipientId, onReactionAdded, isOpen, toggleOpen, setDEP }) => {
 	const handleEmojiClick = async emojiData => {
 		try {
 			const body = {
@@ -26,9 +26,10 @@ const AddEmojiButton = ({ recipientId, onReactionAdded, isOpen, toggleOpen }) =>
 				<img src={AddEmojiIcon} alt="이모지 추가 아이콘" />
 				<span className={styles.buttonText}>추가</span>
 			</button>
+
 			{isOpen && (
 				<div className={styles.pickerWrapper}>
-					<EmojiPicker onEmojiClick={handleEmojiClick} />
+					<EmojiPicker onEmojiClick={handleEmojiClick} emojiStyle="native" lazyLoadEmojis={true} />
 				</div>
 			)}
 		</div>
