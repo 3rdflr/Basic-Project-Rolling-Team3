@@ -64,8 +64,6 @@ function WritePaper() {
 			console.error('에러:', error);
 			alert('롤링페이퍼 생성에 실패하였습니다.');
 		}
-
-		console.log('formData', formData);
 	};
 
 	return (
