@@ -1,0 +1,57 @@
+.button {
+	background-color: inherit;
+	cursor: pointer;
+	background-color: var(--white);
+	padding: 0.8rem 1.6rem;
+	border-radius: 0.6rem;
+	border: 0.1rem solid var(--gray-300);
+	font-size: var(--font-16);
+	color: var(--gray-900);
+	z-index: 999;
+}
+
+.primary {
+	position: sticky;
+	border: none;
+	outline: none;
+	background-color: var(--purple-600);
+	width: 32rem;
+	height: 5.6rem;
+	border-radius: 2rem;
+	bottom: 2.4rem;
+	color: var(--white);
+	font-size: var(--font-18);
+	font-weight: var(--font-bold);
+}
+
+.primary:hover {
+	background-color: var(--purple-700);
+}
+
+.disabled {
+	background-color: var(--gray-300);
+	font-weight: var(--font-bold);
+	cursor: not-allowed;
+}
+
+.disabled:hover {
+	background-color: var(--gray-300);
+	font-weight: var(--font-bold);
+	cursor: not-allowed;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.primary {
+		width: 72rem;
+		height: 5.6rem;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.primary {
+		bottom: 4rem;
+		width: 28rem;
+	}
+}

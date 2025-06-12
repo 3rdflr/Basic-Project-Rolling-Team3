@@ -1,0 +1,95 @@
+.carouselWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 7rem;
+}
+
+.list {
+	display: flex;
+	gap: 1.2rem;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow-x: auto;
+	padding: 0 2rem;
+}
+
+.list::-webkit-scrollbar {
+	display: none;
+}
+
+.navButton {
+	flex-shrink: 0;
+	margin: 0 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 0.1rem solid var(--gray-300);
+	border-radius: 50%;
+	width: 4rem;
+	height: 4rem;
+	position: absolute;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 10;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.prevButton {
+	left: 23rem;
+}
+.nextButton {
+	right: 23rem;
+}
+
+.navButton:hover {
+	background-color: var(--white);
+}
+
+.navButton svg {
+	font-size: 1.5rem;
+	color: var(--gray-600);
+}
+/* Tablet */
+@media (min-width: 768px) {
+	.list {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scroll-snap-type: x mandatory;
+		padding: 0 2.4rem;
+	}
+
+	.list > a {
+		scroll-snap-align: end;
+		flex-shrink: 0;
+	}
+	.list > a:last-child {
+		margin-right: 0;
+	}
+
+	.navButton {
+		display: none;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.carouselWrapper {
+		padding: 0;
+	}
+
+	.list {
+		max-width: 116rem;
+		gap: 2rem;
+		padding: 0;
+		overflow-x: hidden;
+	}
+
+	.list > a {
+		flex-shrink: initial;
+	}
+
+	.navButton {
+		display: flex;
+	}
+}
