@@ -3,6 +3,7 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 16px;
+	width: 320px;
 }
 
 .addMessage {
@@ -14,7 +15,8 @@
 	border-radius: 16px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 	cursor: pointer;
-	height: 200px;
+	width: 320px;
+	height: 230px;
 }
 
 .addButton {
@@ -23,25 +25,28 @@
 	height: 40px;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) {
 	.messageList {
 		display: grid;
-		grid-template-columns: repeat(2, 360px);
+		grid-template-columns: repeat(2, 350px);
+		gap: 20px;
+		width: 720px;
 	}
 
 	.addMessage {
-		height: 280px;
+		width: 350px;
 	}
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
 	.messageList {
 		display: grid;
-		grid-template-columns: repeat(3, 360px);
+		grid-template-columns: repeat(3, 384px);
 		gap: 24px;
+		width: 1200px;
 	}
 
 	.addMessage {
-		height: 280px;
+		width: 384px;
 	}
 }

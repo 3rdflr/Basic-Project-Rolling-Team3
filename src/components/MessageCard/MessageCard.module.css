@@ -6,11 +6,17 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 280px;
+	height: 230px;
 }
 
 .reactQuillBubble {
-	max-height: 100px;
+	max-height: 75px;
+	overflow-y: hidden;
+	font-size: 15px;
+}
+
+.reactQuillBubble .ql-editer {
+	max-height: 65px;
 	overflow-y: hidden;
 }
 
@@ -36,13 +42,18 @@
 }
 
 .sender {
-	font-size: var(--font-16);
+	font-size: 18px;
 	font-weight: var(--font-regular);
+}
+
+.senderName {
+	font-size: 16px;
+	font-weight: var(--font-bold);
 }
 
 .relationship {
 	display: inline-block;
-	font-size: var(--font-14);
+	font-size: 14px;
 	font-weight: var(--font-regular);
 	border-radius: 4px;
 	padding: 0 8px;
@@ -71,7 +82,7 @@
 }
 
 .deleteButton {
-	border: 1px solid var(--white);
+	border: 1px solid var(--gray-300);
 	border-radius: 6px;
 	padding: 8px;
 	width: 40px;
@@ -84,23 +95,27 @@
 }
 
 .date {
-	font-size: var(--font-12);
+	font-size: 12px;
 	color: var(--gray-300);
 	text-align: left;
 }
 
 .fontPretendard :global(.ql-editor) {
 	font-family: 'Pretendard', sans-serif !important;
+	font-size: 15px !important;
 }
 
 .fontNotoSans :global(.ql-editor) {
 	font-family: 'Noto Sans', sans-serif !important;
+	font-size: 15px !important;
 }
 .fontNanumHandwriting :global(.ql-editor) {
 	font-family: '나눔손글씨 손편지체', sans-serif !important;
+	font-size: 15px !important;
 }
 .fontNanumMyeongjo :global(.ql-editor) {
 	font-family: '나눔명조', serif !important;
+	font-size: 15px !important;
 }
 
 .viewDetail {

@@ -12,6 +12,7 @@ import styles from './RollingPaparPage.module.css';
 import { useState } from 'react';
 import useDeleteRecipient from '../../hooks/useDeleteRecipient';
 import { useScreenSize } from '../../hooks/useScreenSize';
+import Keyframes from '../../components/animation/logoAnimation';
 
 const RollingPaperPage = () => {
 	const { id: recipientId } = useParams();
@@ -61,14 +62,19 @@ const RollingPaperPage = () => {
 		}
 	};
 
-	if (loadingRecipient || loadingReactions) return <div>로딩 중...</div>;
+	if (loadingRecipient || loadingReactions)
+		return (
+			<div className={styles.loading}>
+				<Keyframes />
+			</div>
+		);
 	if (errorRecipient || errorReactions) return <div>에러 발생!</div>;
 
 	const { topReactions, name, backgroundColor, backgroundImageURL, messageCount, recentMessages } =
 		recipientData;
 	const allReactions = reactionData || [];
 
-	const resolvedColor = backgroundImageURL ? undefined : `var(--${backgroundColor}-300)`;
+	const resolvedColor = backgroundImageURL ? undefined : `var(--${backgroundColor}-200)`;
 
 	return (
 		<div>
