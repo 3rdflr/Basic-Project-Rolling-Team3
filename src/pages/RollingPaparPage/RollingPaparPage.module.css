@@ -1,0 +1,93 @@
+.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.buttonItems {
+	display: flex;
+	justify-content: space-between;
+	margin: 40px 0 20px;
+	width: 320px;
+}
+
+.deleteButton {
+	position: fixed;
+	bottom: 16px;
+	left: 20px;
+	right: 20px;
+	padding: 14px 24px;
+	z-index: 10;
+	background-color: var(--purple-600);
+	color: var(--white);
+}
+
+.main {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+	overflow: auto;
+	position: relative;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 320px;
+	margin-bottom: 40px;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	width: 360px;
+	margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+	.main {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: column;
+		width: 720px;
+		margin: 0 auto;
+	}
+
+	.wrapper {
+		width: 720px;
+	}
+
+	.buttonItems {
+		width: 720px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.main {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.wrapper {
+		width: 1200px;
+	}
+
+	.buttonItems {
+		width: 1200px;
+	}
+
+	.header {
+		width: 1200px;
+		margin: 0 auto;
+	}
+}

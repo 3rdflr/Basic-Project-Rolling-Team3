@@ -1,0 +1,126 @@
+.messageCard {
+	background-color: var(--white);
+	border-radius: 16px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 230px;
+}
+
+.reactQuillBubble {
+	max-height: 75px;
+	overflow-y: hidden;
+	font-size: 15px;
+}
+
+.reactQuillBubble .ql-editer {
+	max-height: 65px;
+	overflow-y: hidden;
+}
+
+.senderProfile {
+	display: grid;
+	grid-template-columns: 56px auto max-content;
+	border-bottom: 1px solid var(--gray-200);
+	padding-bottom: 15px;
+	gap: 14px;
+}
+
+.profileImage {
+	width: 56px;
+	height: 56px;
+	border-radius: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url('/ProfileIcon.svg');
+}
+
+.senderInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: baseline;
+}
+
+.sender {
+	font-size: 18px;
+	font-weight: var(--font-regular);
+}
+
+.senderName {
+	font-size: 16px;
+	font-weight: var(--font-bold);
+}
+
+.relationship {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: var(--font-regular);
+	border-radius: 4px;
+	padding: 0 8px;
+	min-width: 0;
+	max-width: max-content;
+}
+
+.relationship-friend {
+	color: var(--blue-500);
+	background-color: var(--blue-100);
+}
+
+.relationship-family {
+	color: var(--green-500);
+	background-color: var(--green-100);
+}
+
+.relationship-coworker {
+	color: var(--purple-500);
+	background-color: var(--purple-100);
+}
+
+.relationship-acquaintance {
+	color: var(--beige-500);
+	background-color: var(--beige-100);
+}
+
+.deleteButton {
+	border: 1px solid var(--gray-300);
+	border-radius: 6px;
+	padding: 8px;
+	width: 40px;
+	height: 40px;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.date {
+	font-size: 12px;
+	color: var(--gray-300);
+	text-align: left;
+}
+
+.fontPretendard :global(.ql-editor) {
+	font-family: 'Pretendard', sans-serif !important;
+	font-size: 15px !important;
+}
+
+.fontNotoSans :global(.ql-editor) {
+	font-family: 'Noto Sans', sans-serif !important;
+	font-size: 15px !important;
+}
+.fontNanumHandwriting :global(.ql-editor) {
+	font-family: '나눔손글씨 손편지체', sans-serif !important;
+	font-size: 15px !important;
+}
+.fontNanumMyeongjo :global(.ql-editor) {
+	font-family: '나눔명조', serif !important;
+	font-size: 15px !important;
+}
+
+.viewDetail {
+	cursor: pointer;
+}

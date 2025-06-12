@@ -1,0 +1,52 @@
+.messageList {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 16px;
+	width: 320px;
+}
+
+.addMessage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: var(--white);
+	border-radius: 16px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	width: 320px;
+	height: 230px;
+}
+
+.addButton {
+	color: var(--gray-500);
+	width: 40px;
+	height: 40px;
+}
+
+@media (min-width: 768px) {
+	.messageList {
+		display: grid;
+		grid-template-columns: repeat(2, 350px);
+		gap: 20px;
+		width: 720px;
+	}
+
+	.addMessage {
+		width: 350px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.messageList {
+		display: grid;
+		grid-template-columns: repeat(3, 384px);
+		gap: 24px;
+		width: 1200px;
+	}
+
+	.addMessage {
+		width: 384px;
+	}
+}

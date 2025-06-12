@@ -1,18 +1,19 @@
 .carouselWrapper {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	margin-bottom: 7rem;
+	margin-bottom: 70px;
 }
 
 .list {
 	display: flex;
-	gap: 1.2rem;
+	gap: 12px;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 	overflow-x: auto;
-	padding: 0 2rem;
+	padding: 0 20px;
 }
 
 .list::-webkit-scrollbar {
@@ -22,24 +23,24 @@
 .navButton {
 	flex-shrink: 0;
 	margin: 0 10px;
-	background-color: rgba(255, 255, 255, 0.8);
-	border: 0.1rem solid var(--gray-300);
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid var(--gray-300);
 	border-radius: 50%;
-	width: 4rem;
-	height: 4rem;
+	width: 40px;
+	height: 40px;
 	position: absolute;
 	display: none;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
 	z-index: 10;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 .prevButton {
-	left: 23rem;
+	left: -10px;
 }
 .nextButton {
-	right: 23rem;
+	right: -10px;
 }
 
 .navButton:hover {
@@ -47,7 +48,7 @@
 }
 
 .navButton svg {
-	font-size: 1.5rem;
+	font-size: 15px;
 	color: var(--gray-600);
 }
 /* Tablet */
@@ -56,7 +57,7 @@
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 		scroll-snap-type: x mandatory;
-		padding: 0 2.4rem;
+		padding: 0 24px;
 	}
 
 	.list > a {
@@ -79,8 +80,8 @@
 	}
 
 	.list {
-		max-width: 116rem;
-		gap: 2rem;
+		max-width: 1160px;
+		gap: 20px;
 		padding: 0;
 		overflow-x: hidden;
 	}

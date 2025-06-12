@@ -2,12 +2,13 @@
 	display: flex;
 	align-items: center;
 	position: relative;
-	height: 2.8rem;
+	height: 28px;
 }
 
 .profileImage {
-	width: 2.8rem;
-	height: 2.8rem;
+	background-color: var(--gray-300);
+	width: 28px;
+	height: 28px;
 	border-radius: 50%;
 	object-fit: cover;
 	border: 2px solid var(--white);
@@ -23,10 +24,9 @@
 	margin-left: -15px;
 	z-index: 3;
 }
-
 .remainingCount {
-	width: 2.8rem;
-	height: 2.8rem;
+	width: 28px;
+	height: 28px;
 	border-radius: 50%;
 	background-color: var(--white);
 	color: var(--gray-500);

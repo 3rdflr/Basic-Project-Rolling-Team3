@@ -1,0 +1,124 @@
+.modalMessageCard {
+	background-color: var(--white);
+	border-radius: 16px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	width: 330px;
+}
+
+.modalHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid var(--gray-300);
+	padding: 15px 0;
+	width: 100%;
+}
+
+.modalSenderProfile {
+	display: grid;
+	grid-template-columns: 56px auto;
+	gap: 14px;
+}
+
+.modalProfileImage {
+	width: 56px;
+	height: 56px;
+	border-radius: 100px;
+}
+
+.modalSenderInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.modalSender {
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+}
+
+.modalRelationship {
+	display: inline-block;
+	font-size: var(--font-14);
+	font-weight: var(--font-regular);
+	border-radius: 4px;
+	padding: 0 8px;
+	min-width: 0;
+	max-width: max-content;
+}
+
+.relationship-friend {
+	color: var(--blue-500);
+	background-color: var(--blue-100);
+}
+
+.relationship-family {
+	color: var(--green-500);
+	background-color: var(--green-100);
+}
+
+.relationship-coworker {
+	color: var(--purple-500);
+	background-color: var(--purple-100);
+}
+
+.relationship-acquaintance {
+	color: var(--beige-500);
+	background-color: var(--beige-100);
+}
+
+.modalDate {
+	font-size: var(--font-12);
+	color: var(--gray-300);
+	text-align: left;
+}
+
+.reactQuillBubble {
+	width: 300px;
+	height: 300px;
+	overflow-y: auto;
+}
+
+.modalButton {
+	width: 120px;
+	height: 40px;
+	background-color: var(--purple-600);
+	color: var(--white);
+}
+
+.fontPretendard :global(.ql-editor) {
+	font-family: 'Pretendard', sans-serif !important;
+	font-size: 15px !important;
+}
+
+.fontNotoSans :global(.ql-editor) {
+	font-family: 'Noto Sans', sans-serif !important;
+	font-size: 15px !important;
+}
+.fontNanumHandwriting :global(.ql-editor) {
+	font-family: '나눔손글씨 손편지체', sans-serif !important;
+	font-size: 15px !important;
+}
+.fontNanumMyeongjo :global(.ql-editor) {
+	font-family: '나눔명조', serif !important;
+	font-size: 15px !important;
+}
+
+@media (min-width: 768px) {
+	.modalMessageCard {
+		width: 600px;
+		height: 500px;
+	}
+
+	.reactQuillBubble {
+		width: 520px;
+	}
+}

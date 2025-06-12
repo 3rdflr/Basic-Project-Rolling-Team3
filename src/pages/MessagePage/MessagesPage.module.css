@@ -1,0 +1,138 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+	margin: 0 auto;
+}
+
+.h2 {
+	font-size: var(--font-24);
+	font-weight: var(--font-bold);
+	margin-top: 20px;
+	margin-bottom: 8px;
+}
+
+.p {
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+	color: var(--gray-500);
+	line-height: 26px;
+	letter-spacing: -1%;
+}
+
+.profilesection {
+	position: relative;
+}
+
+.profilep {
+	position: absolute;
+	font-size: var(--font-16);
+	font-weight: var(--font-regular);
+	color: var(--gray-500);
+	line-height: 26px;
+	letter-spacing: -1%;
+	margin-left: 115px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.inputContainer {
+	position: relative;
+	width: fit-content;
+}
+
+.charCount {
+	position: absolute;
+	top: 58%;
+	transform: translateY(-50%);
+	right: 10px;
+	font-size: 12px;
+	color: var(--gray-400);
+	pointer-events: none;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-top: 15px;
+}
+
+/* 큰 이미지(선택된 이미지) */
+.selectedimage {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	border: 2px solid transparent;
+}
+
+/* 썸네일 이미지 리스트(간격 조정 필요) */
+.profilethumbnails {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 3px;
+	margin-top: 25px;
+	margin-left: 15px;
+}
+
+/* 썸네일 개별 이미지 (백그라운드이미지로 바꿀 필요있음)*/
+.thumbnail {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	border: 3px solid transparent;
+	background-color: var(--gray-300);
+}
+
+.selected {
+	border: 3px solid var(--purple-500);
+}
+
+.loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.button {
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.profilethumbnails {
+		display: flex;
+	}
+	.thumbnail {
+		width: 56px;
+		height: 56px;
+	}
+	.profilep {
+		margin-left: 170px;
+		margin-top: 10px;
+	}
+	.profilethumbnails {
+		margin-top: 35px;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.primary {
+		bottom: 40px;
+		width: 280px;
+	}
+}

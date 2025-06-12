@@ -1,6 +1,6 @@
 export const BASE_URL = 'https://rolling-api.vercel.app';
 export const TEAM = '16-3';
-export const KAKAO_APP_KEY = '813022e1dab181dce46278fb6dc7708f';
+export const KAKAO_APP_KEY = import.meta.env.VITE_KAKAO_APP_KEY;
 
 export const getBackgroundImg = () => '/background-images/';
 
