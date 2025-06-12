@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/buttons/Button/Button';
 
 import styles from './RollingPaparPage.module.css';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import useDeleteRecipient from '../../hooks/useDeleteRecipient';
 import { useScreenSize } from '../../hooks/useScreenSize';
 
@@ -26,9 +26,16 @@ const RollingPaperPage = () => {
 	const { deleteRecipient } = useDeleteRecipient();
 
 	const {
+		data: messagesCardData,
+		isLoading: isLoadingMessagesCard,
+		error: errorMessagesCard,
+	} = useRecipientMessages(recipientId);
+
+	const {
 		data: recipientData,
 		isLoading: loadingRecipient,
 		error: errorRecipient,
+		refetch: refetchRecipientData,
 	} = useRecipientData(recipientId);
 
 	const {
@@ -38,11 +45,10 @@ const RollingPaperPage = () => {
 		refetch: refetchReactions,
 	} = useRecipientReactions(recipientId);
 
-	const {
-		data: messagesCardData,
-		isLoading: isLoadingMessagesCard,
-		error: errorMessagesCard,
-	} = useRecipientMessages(recipientId);
+	const handleReactionAdded = useCallback(() => {
+		refetchReactions();
+		refetchRecipientData();
+	}, [refetchReactions, refetchRecipientData]);
 
 	const handleDelete = async () => {
 		if (!recipientId) return;
@@ -60,8 +66,10 @@ const RollingPaperPage = () => {
 			alert('삭제 중 오류가 발생했습니다.');
 		}
 	};
+	if (isLoadingMessagesCard || !recipientData) {
+		return <div>로딩 중...</div>;
+	}
 
-	if (loadingRecipient || loadingReactions) return <div>로딩 중...</div>;
 	if (errorRecipient || errorReactions) return <div>에러 발생!</div>;
 
 	const { topReactions, name, backgroundColor, backgroundImageURL, messageCount, recentMessages } =
@@ -81,7 +89,7 @@ const RollingPaperPage = () => {
 					name={name}
 					recipientId={recipientId}
 					allReactions={allReactions}
-					onReactionAdded={refetchReactions}
+					onReactionAdded={handleReactionAdded}
 				/>
 			</header>
 			<main

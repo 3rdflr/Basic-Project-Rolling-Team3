@@ -4,7 +4,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 import styles from './BadgeList.module.css';
 
-const BadgeList = ({ topReactions, allReactions, isOpen, toggleOpen }) => {
+const BadgeList = ({ topReactions, allReactions, isOpen, toggleOpen, isLoading }) => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.topReactions}>
