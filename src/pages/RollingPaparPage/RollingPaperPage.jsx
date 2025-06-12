@@ -68,10 +68,12 @@ const RollingPaperPage = () => {
 		recipientData;
 	const allReactions = reactionData || [];
 
+	const resolvedColor = backgroundImageURL ? undefined : `var(--${backgroundColor}-300)`;
+
 	return (
 		<div>
-			{screenSize !== 'sm' && <Header />}
 			<header className={styles.header}>
+				{screenSize !== 'sm' && <Header />}
 				<RecipientHeader
 					messageCount={messageCount}
 					recentMessages={recentMessages}
@@ -84,22 +86,22 @@ const RollingPaperPage = () => {
 			</header>
 			<main
 				style={{
-					backgroundColor: backgroundImageURL ? undefined : backgroundColor,
-					backgroundImage: backgroundImageURL ? `url(${backgroundImageURL})` : undefined,
+					backgroundColor: resolvedColor,
+					backgroundImage: backgroundImageURL ? `url(${backgroundImageURL})` : resolvedColor,
 				}}
 				className={styles.main}
 			>
 				<div className={styles.wrapper}>
 					<div className={styles.buttonItems}>
 						<Link to="/list">
-							<Button size="small">뒤로 가기</Button>
+							<Button variant="small">뒤로 가기</Button>
 						</Link>
-						<Button size="small" onClick={toggleEditMode}>
+						<Button variant="small" onClick={toggleEditMode}>
 							{isEditMode ? '편집완료' : '편집하기'}
 						</Button>
 					</div>
 					{isEditMode && (
-						<Button size="small" onClick={handleDelete} className={styles.deleteButton}>
+						<Button variant="small" onClick={handleDelete} className={styles.deleteButton}>
 							롤링페이퍼 삭제하기
 						</Button>
 					)}

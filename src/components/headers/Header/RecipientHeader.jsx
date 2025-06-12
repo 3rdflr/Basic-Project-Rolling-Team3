@@ -6,6 +6,7 @@ import AddEmojiButton from '../../buttons/AddEmojiButton/AddEmojiButton';
 import useClickOutside from '../../../hooks/useClickOutside';
 
 import styles from './RecipientHeader.module.css';
+import { useScreenSize } from '../../../hooks/useScreenSize';
 
 const RecipientHeader = ({
 	name,
@@ -18,6 +19,7 @@ const RecipientHeader = ({
 }) => {
 	const [openToggle, setOpenToggle] = useState(false);
 	const dropdownRef = useRef(false);
+	const screenSize = useScreenSize();
 
 	useClickOutside(dropdownRef, () => setOpenToggle(false));
 
@@ -29,12 +31,15 @@ const RecipientHeader = ({
 		<div className={styles.header}>
 			<h1 className={styles.recipient}>To. {name}</h1>
 			<div className={styles.headerItems} ref={dropdownRef}>
-				<div>
-					<ProfileImg count={messageCount} data={recentMessages} />
-					<span>
-						<span>{messageCount}</span>명이 작성했어요!
-					</span>
-				</div>
+				{screenSize !== 'sm' && (
+					<div className={styles.authorStatus}>
+						<ProfileImg count={messageCount} data={recentMessages} />
+						<span>
+							<span className={styles.authorStatusCount}>{messageCount}</span>명이 작성했어요!
+						</span>
+					</div>
+				)}
+
 				<BadgeList
 					topReactions={topReactions}
 					allReactions={allReactions}
