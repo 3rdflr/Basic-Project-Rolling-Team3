@@ -56,7 +56,7 @@
 </div>
 <br>
 
-###**Collaboration Tools**
+### **Collaboration Tools**
 <div>
 <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white"/>   <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=white"/> 
 </div>
