@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import styles from '@/components/buttons/Button/LinkButton.module.css';
+import styles from './LInkButton.module.css';
 
 function LinkButton({ variant, children, linkTo }) {
 	return (
