@@ -67,12 +67,7 @@ const RollingPaperPage = () => {
 			alert('삭제 중 오류가 발생했습니다.');
 		}
 	};
-	if (isLoadingMessagesCard || !recipientData) {
-		return <div>로딩 중...</div>;
-	}
-
-
-	if (loadingRecipient || loadingReactions)
+	if (isLoadingMessagesCard || !recipientData)
 		return (
 			<div className={styles.loading}>
 				<Keyframes />
