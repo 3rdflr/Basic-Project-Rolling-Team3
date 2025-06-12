@@ -16,7 +16,7 @@
 
 ## ⚙️ 기술 스택
 
-###**Environment**
+### **Environment**
 
 <div>
 <img src="https://img.shields.io/badge/visual studio code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"> 
@@ -25,7 +25,7 @@
 </div>
 <br>
 
-###**Config**
+### **Config**
 
 <div>
 <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"> 
@@ -35,7 +35,7 @@
 </div>
 <br>
 
-###**Development**
+### **Development**
 
 <div>
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">  
@@ -49,7 +49,7 @@
 </div>
 <br>
 
-###**Deploy**
+### **Deploy**
 
 <div>
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white"/>
