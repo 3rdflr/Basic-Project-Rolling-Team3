@@ -24,7 +24,7 @@
 /* Desktop (Large) */
 @media (min-width: 1200px) {
 	.content {
-		gap: 944px;
+		gap: 900px;
 		justify-content: space-evenly;
 	}
 }

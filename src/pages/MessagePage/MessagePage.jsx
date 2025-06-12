@@ -95,7 +95,8 @@ function MessagePage() {
 	return (
 		<>
 			<Helmet>
-				<title>Rolling | Message</title>
+				<title>Rolling | 메시지 작성</title>
+				<link rel="icon" href="/LogoIcon.png" />
 			</Helmet>
 			<Header isForm={true} />
 			<div className={styles.container}>

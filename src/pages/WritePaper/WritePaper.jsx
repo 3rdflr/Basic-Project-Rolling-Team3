@@ -71,7 +71,8 @@ function WritePaper() {
 	return (
 		<>
 			<Helmet>
-				<title>Rolling | Post</title>
+				<title>Rolling | 새 롤링페이퍼 만들기</title>
+				<link rel="icon" href="/LogoIcon.png" />
 			</Helmet>
 			<Header isForm={true} />
 			<div className={styles.container}>
