@@ -18,29 +18,16 @@ function SearchCard({ recipients, onSearch }) {
 
 	useEffect(() => {
 		const handler = setTimeout(() => {
-			const lowerCaseSearchTerm = searchTerm.toLowerCase();
+			const keyword = searchTerm.toLowerCase();
+			const filtered = recipients.filter(r => r.name.toLowerCase().includes(keyword));
 
-			const newSuggestions = recipients
-				.filter(recipient => recipient.name.toLowerCase().includes(lowerCaseSearchTerm))
-				.map(recipient => recipient.name);
-			setSuggestions([...new Set(newSuggestions)].slice(0, 5));
+			setSuggestions([...new Set(filtered.map(r => r.name))].slice(0, 5));
 			setHighlightedIndex(-1);
-
-			const filteredRecipients = recipients.filter(recipient =>
-				recipient.name.toLowerCase().includes(lowerCaseSearchTerm)
-			);
-
-			onSearch(filteredRecipients, searchTerm);
-
-			if (searchTerm.trim() === '') {
-				setShowSuggestions(false);
-			} else {
-				setShowSuggestions(true);
-			}
+			onSearch(filtered, searchTerm);
+			setShowSuggestions(searchTerm.trim() !== '');
 		}, 300);
-		return () => {
-			clearTimeout(handler);
-		};
+
+		return () => clearTimeout(handler);
 	}, [searchTerm, recipients, onSearch]);
 
 	const handleSuggestionClick = suggestion => {
@@ -68,7 +55,6 @@ function SearchCard({ recipients, onSearch }) {
 				if (highlightedIndex !== -1) {
 					e.preventDefault();
 					handleSuggestionClick(suggestions[highlightedIndex]);
-				} else if (searchTerm.trim() !== '') {
 				} else {
 					setShowSuggestions(false);
 					setHighlightedIndex(-1);
@@ -82,6 +68,17 @@ function SearchCard({ recipients, onSearch }) {
 		[suggestions, highlightedIndex, searchTerm, handleSuggestionClick]
 	);
 
+	const handleInputFocus = () => {
+		if (searchTerm.trim() !== '') {
+			const filtered = recipients
+				.filter(r => r.name.toLowerCase().includes(searchTerm.toLowerCase()))
+				.map(r => r.name);
+
+			setSuggestions([...new Set(filtered)].slice(0, 5));
+			setShowSuggestions(true);
+		}
+	};
+
 	return (
 		<div className={styles.searchSection} ref={searchSectionRef}>
 			<input
@@ -90,19 +87,7 @@ function SearchCard({ recipients, onSearch }) {
 				value={searchTerm}
 				onChange={handleSearchInputChange}
 				onKeyDown={handleKeyDown}
-				onFocus={() =>
-					searchTerm.trim() !== '' &&
-					setSuggestions(
-						[
-							...new Set(
-								recipients
-									.filter(r => r.name.toLowerCase().includes(searchTerm.toLowerCase()))
-									.map(r => r.name)
-							),
-						].slice(0, 5)
-					) &&
-					setShowSuggestions(true)
-				}
+				onFocus={handleInputFocus}
 				className={styles.searchInput}
 			/>
 			{showSuggestions && suggestions.length > 0 && searchTerm.trim() !== '' && (
