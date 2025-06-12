@@ -8,7 +8,7 @@
 	display: flex;
 	align-items: center;
 	font-size: 18px;
-	margin-right: 57px;
+	margin-left: 263px;
 	gap: 10px;
 }
 
@@ -19,13 +19,14 @@
 .recipient {
 	font-size: 28px;
 	font-weight: var(--font-bold);
+	color: var(--gray-700);
 	line-height: 28px;
 	padding: 8px 0;
 }
 
 .headerItems {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	border-top: solid 1px var(--gray-200);
 	padding: 8px 0;
@@ -42,9 +43,8 @@
 	}
 
 	.headerItems {
-		width: 425px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-end;
 		gap: 12px;
 	}
 }
@@ -59,7 +59,8 @@
 
 	.headerItems {
 		display: flex;
-		width: 710px;
+		justify-content: flex-end;
+
 		gap: 12px;
 	}
 }

@@ -37,7 +37,7 @@
 	border: 1px solid var(--gray-300);
 	background-color: var(--white);
 	border-radius: 10px;
-	color: var(--black);
+	color: var(--gray-700);
 	font-size: 14px;
 	padding: 12px;
 }
