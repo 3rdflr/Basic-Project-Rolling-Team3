@@ -35,7 +35,7 @@ function MessagePage() {
 	const [content, setContent] = useState('');
 
 	const screenSize = useScreenSize();
-	const buttonSize = screenSize === 'sm' ? 'primary' : 'large';
+	const buttonSize = screenSize === 'sm' ? 'primary' : sender.trim() ? 'large' : 'largeDisabled';
 
 	console.log(id);
 
@@ -174,7 +174,12 @@ function MessagePage() {
 						<TextDropdown options={font} value={selectedFont} onChange={setSelectedFont} />
 					</div>
 					<div className={styles.button}>
-						<Button type="submit" size={buttonSize} children="생성하기" disabled={!sender.trim()} />
+						<Button
+							type="submit"
+							variant={buttonSize}
+							children="생성하기"
+							disabled={!sender.trim()}
+						/>
 					</div>
 				</form>
 			</div>
