@@ -1,15 +1,19 @@
-import { Link } from 'react-router';
-
 import styles from './Button.module.css';
+import classNames from 'classnames';
 
-function Button({ type = 'button', classStyle, children, linkTo, disabled = false }) {
+function Button({
+	type = 'button',
+	variant,
+	children,
+	linkTo,
+	disabled = false,
+	onClick,
+	className,
+}) {
+	const buttonClass = classNames(styles[variant], { [styles.disabled]: disabled }, className);
 	return (
-		<button
-			type={type}
-			className={`${styles[classStyle]} ${disabled ? styles.disabled : ''}`}
-			disabled={disabled}
-		>
-			{type === 'submit' ? <span>{children}</span> : <Link to={linkTo}>{children}</Link>}
+		<button type={type} className={buttonClass} disabled={disabled} onClick={onClick}>
+			<span>{children}</span>
 		</button>
 	);
 }

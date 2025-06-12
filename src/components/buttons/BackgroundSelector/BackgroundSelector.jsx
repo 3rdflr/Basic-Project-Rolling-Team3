@@ -24,7 +24,7 @@ function BackgroundSelector({ onSelect, selectedTab, setSelectedTab }) {
 
 	return (
 		<div className={styles.container}>
-			<div>
+			<div className={styles.toggles}>
 				<button
 					type="button"
 					className={selectedTab === 'color' ? styles.activeTab : styles.inactiveTab}
@@ -41,7 +41,7 @@ function BackgroundSelector({ onSelect, selectedTab, setSelectedTab }) {
 				</button>
 			</div>
 			{selectedTab === 'color' && (
-				<div className={styles.colorpalette}>
+				<div className={styles.palette}>
 					{['beige', 'purple', 'blue', 'green'].map((color, idx) => (
 						<div
 							key={idx}
@@ -62,14 +62,13 @@ function BackgroundSelector({ onSelect, selectedTab, setSelectedTab }) {
 				</div>
 			)}
 			{selectedTab === 'image' && (
-				<div className={styles.imagePalette}>
-					{/* 추후 수정 필요 */}
-					{isLoading && <p>이미지를 불러오는 중입니다...</p>}
+				<div className={styles.palette}>
+					{isLoading && <p>이미지를 불러오고 있습니다.</p>}
 					{error && <p>이미지를 불러오는데 실패했습니다.</p>}
 					{imageData.map((url, idx) => (
 						<div
 							key={idx}
-							className={`${styles.imageWrapper} ${
+							className={`${styles.imageWrapper} ${styles.image} ${
 								selectedImage === idx ? styles.selected : styles.notselected
 							}`}
 							onClick={() => {
@@ -81,8 +80,8 @@ function BackgroundSelector({ onSelect, selectedTab, setSelectedTab }) {
 									backgroundImageURL: imageData[idx],
 								}));
 							}}
+							style={{ backgroundImage: `url(${url})` }}
 						>
-							<img className={styles.image} src={url} alt={`Image ${idx}`} />
 							{selectedImage === idx && (
 								<img src={checkIcon} alt="선택됨" className={styles.checkIcon} />
 							)}

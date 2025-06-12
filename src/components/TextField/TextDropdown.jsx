@@ -3,7 +3,7 @@ import styles from './TextDropdown.module.css';
 import arrowUp from '../../assets/icons/arrow_top.svg';
 import arrowDown from '../../assets/icons/arrow_down.svg';
 
-function TextDropdown({ value, options, onChange, error }) {
+function TextDropdown({ value, options, onChange }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const dropdownRef = useRef(null);
 
@@ -39,7 +39,11 @@ function TextDropdown({ value, options, onChange, error }) {
 			{isOpen && (
 				<ul className={styles.dropdownList}>
 					{options.map((option, index) => (
-						<li key={index} onClick={() => handleSelect(option)}>
+						<li
+							key={index}
+							onClick={() => handleSelect(option)}
+							style={{ fontFamily: `${option}, sans-serif` }}
+						>
 							<p className={styles.dropdownOption}>{option}</p>
 						</li>
 					))}

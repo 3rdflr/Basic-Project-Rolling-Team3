@@ -1,10 +1,6 @@
-import { EmojiBadge } from '../Badge/Badge';
+import EmojiBadge from '../Badge/EmojiBadge';
 import ProfileImg from '../Badge/ProfileImg';
-
-import beige from '../../assets/images/beige.svg';
-import blue from '../../assets/images/blue.svg';
-import green from '../../assets/images/green.svg';
-import purple from '../../assets/images/purple.svg';
+import classNames from 'classnames';
 
 import styles from './Card.module.css';
 
@@ -12,35 +8,28 @@ function Card({ data }) {
 	const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } =
 		data;
 
-	const cardStyle = {};
-	let cardClassName = styles.card;
+	const cardStyle = backgroundImageURL
+		? { '--card-background-image': `url(${backgroundImageURL})` }
+		: {
+				'--card-background-color': `var(--${backgroundColor}-200)`,
+		  };
 
-	if (backgroundImageURL) {
-		cardStyle['--card-background-image'] = `url(${backgroundImageURL})`;
-	} else {
-		cardClassName += ` ${styles.noImage}`;
-		cardStyle['--card-background-color'] = `var(--${backgroundColor}-200)`;
-	}
+	let cardClassName = classNames(styles.card, {
+		[styles[backgroundColor]]: !backgroundImageURL,
+	});
+
 	return (
 		<>
 			<div className={cardClassName} style={cardStyle}>
 				<div>
 					<div className={styles.cardText}>
-						{backgroundImageURL ? (
-							<h1 className={styles.nameInherit}>To. {name}</h1>
-						) : (
-							<h1 className={styles.name}>To. {name}</h1>
-						)}
+						<h1 className={backgroundImageURL ? styles.nameWhite : styles.name}>
+							To. {name.length <= 8 ? name : `${name.slice(0, 7)}...`}
+						</h1>
 						<ProfileImg count={messageCount} data={recentMessages} />
-						{backgroundImageURL ? (
-							<span className={styles.countTextInherit}>
-								<span className={styles.count}>{messageCount}</span>명이 작성했어요!
-							</span>
-						) : (
-							<span className={styles.countText}>
-								<span className={styles.count}>{messageCount}</span>명이 작성했어요!
-							</span>
-						)}
+						<span className={backgroundImageURL ? styles.countTextWhite : styles.countText}>
+							<span className={styles.count}>{messageCount}</span>명이 작성했어요!
+						</span>
 					</div>
 					<div className={styles.badge}>
 						{topReactions.map(emoji => (

@@ -1,8 +1,6 @@
+import { Helmet } from 'react-helmet';
 import { useState } from 'react';
-import useFetch from '../../hooks/useFetch';
-import { recipientsAPI } from '../../api/index.js';
-import { TEAM } from '../../constants/endPoints';
-// import Header from '../../components/headers/Header/Header';
+import Header from '../../components/headers/Header/Header';
 import TextInput from '../../components/TextField/TextInput';
 import BackgroundSelector from '../../components/buttons/BackgroundSelector/BackgroundSelector';
 import Button from '../../components/buttons/Button/Button';
@@ -10,6 +8,8 @@ import styles from './WritePaper.module.css';
 import useFetch from '../../hooks/useFetch';
 import { recipientsAPI } from '../../api/index.js';
 import { TEAM } from '../../constants/endPoints';
+import { useNavigate } from 'react-router';
+import { useScreenSize } from '../../hooks/useScreenSize';
 
 function WritePaper() {
 	const [name, setName] = useState('');
@@ -19,13 +19,18 @@ function WritePaper() {
 		backgroundImageURL: '',
 	});
 
+	const screenSize = useScreenSize();
+	const buttonSize = screenSize === 'sm' ? 'primary' : name.trim() ? 'large' : 'largeDisabled';
+
 	const [nameError, setNameError] = useState(false);
+
+	const navigate = useNavigate();
 
 	const [isLoading, isError, createRecipient] = useFetch(recipientsAPI.createRecipients);
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		if (!name.trim()) {
+		if (name.trim().length < 1 || name.trim().length > 40) {
 			setNameError(true);
 			return;
 		}
@@ -53,54 +58,73 @@ function WritePaper() {
 		try {
 			const response = await createRecipient(formData);
 			console.log('성공:', response);
+			const newPostId = response.id || response.data?.id;
+			navigate(`/post/${newPostId}`);
 		} catch (error) {
 			console.error('에러:', error);
+			alert('롤링페이퍼 생성에 실패하였습니다.');
 		}
-
-		console.log('formData', formData);
 	};
 
 	return (
-		<div className={styles.container}>
-			{/* <Header isForm={true} /> */}
-			<form onSubmit={handleSubmit} className={styles.form}>
-				<div className={styles.inputarea}>
-					<h2 className={styles.h2}>To</h2>
-					<TextInput
-						className={styles.input}
-						value={name}
-						onChange={e => {
-							setName(e.target.value);
-							if (nameError && e.target.value.trim()) {
-								setNameError(false);
-							}
-						}}
-						onBlur={e => {
-							if (!e.target.value.trim()) {
-								setNameError(true);
-							}
-						}}
-						placeholder="받는 사람 이름을 입력해 주세요"
-						error={nameError}
-						errorMessage="1~40자 사이 이름을 입력해주세요"
-					/>
-				</div>
-				<div className={styles.backgroundselectortext}>
-					<h2 className={styles.h2}>배경화면을 선택해 주세요.</h2>
-					<p className={styles.p}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
-				</div>
-				<div className={styles.backgroundselector}>
-					<BackgroundSelector
-						selectedTab={selectedTab}
-						setSelectedTab={setSelectedTab}
-						onSelect={selectedValue => setSelectedValue(selectedValue)}
-					/>
-				</div>
-				<div className={styles.button}>
-					<Button type="submit" style="primary" text="생성하기" disabled={!name.trim()} />
-				</div>
-			</form>
-		</div>
+		<>
+			<Helmet>
+				<title>Rolling | 새 롤링페이퍼 만들기</title>
+				<link rel="icon" href="/LogoIcon.png" />
+			</Helmet>
+			<Header isForm={true} />
+			<div className={styles.container}>
+				<form onSubmit={handleSubmit} className={styles.form}>
+					<div className={styles.inputarea}>
+						<h2 className={styles.h2}>To.</h2>
+						<div className={styles.inputContainer}>
+							<TextInput
+								className={styles.input}
+								value={name}
+								onChange={e => {
+									const value = e.target.value;
+									setName(value);
+									if (value.trim().length < 1) {
+										setNameError(true);
+									} else {
+										setNameError(false);
+									}
+								}}
+								onBlur={e => {
+									if (!e.target.value.trim()) {
+										setNameError(true);
+									}
+								}}
+								placeholder="받는 사람 이름을 입력해 주세요"
+								error={nameError}
+								errorMessage="1~40자 사이 이름을 입력해주세요"
+								maxLength={40}
+							/>
+							<span className={styles.charCount}>{name.length} / 40</span>
+						</div>
+					</div>
+					<div className={styles.backgroundselectortext}>
+						<h2 className={styles.h2}>배경화면을 선택해 주세요.</h2>
+						<p className={styles.p}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
+					</div>
+					<div className={styles.backgroundselector}>
+						<BackgroundSelector
+							selectedTab={selectedTab}
+							setSelectedTab={setSelectedTab}
+							onSelect={selectedValue => setSelectedValue(selectedValue)}
+						/>
+					</div>
+					<div className={styles.button}>
+						<Button
+							type="submit"
+							variant={buttonSize}
+							children="생성하기"
+							disabled={!name.trim()}
+						/>
+					</div>
+				</form>
+			</div>
+		</>
 	);
 }
 

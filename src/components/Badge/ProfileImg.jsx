@@ -1,7 +1,9 @@
 import style from './ProfileImg.module.css';
 
+const MAX_DISPLAY_COUNT = 3;
+
 function ProfileImg({ count, data }) {
-	const displayCount = Math.min(data?.length || 0, 3);
+	const displayCount = Math.min(data?.length || 0, MAX_DISPLAY_COUNT);
 	const rest = count - displayCount;
 
 	return (
@@ -9,12 +11,13 @@ function ProfileImg({ count, data }) {
 			{data &&
 				data
 					.slice(0, displayCount)
-					.map((profile, index) => (
+					.map(profile => (
 						<img
-							key={index}
+							key={profile.id}
 							className={style.profileImage}
 							src={profile.profileImageURL}
-							alt={`프로필 이미지 ${index + 1}`}
+							alt={`프로필 이미지 ${profile.id}`}
+							loading="lazy"
 						/>
 					))}
 			{rest > 0 && <span className={style.remainingCount}>+{rest}</span>}

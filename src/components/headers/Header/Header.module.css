@@ -1,30 +1,30 @@
 .header {
-	border-bottom: 0.1rem solid var(--gray-200);
+	border-bottom: 1px solid var(--gray-200);
 }
 
 .img {
-	width: 10.6rem;
-	height: 3rem;
+	width: 106px;
+	height: 30px;
 }
 .content {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0 2rem;
-	height: 6.4rem;
+	margin: 20px;
+	height: 64px;
 }
 
 /* Tablet */
 @media (min-width: 768px) {
 	.content {
-		margin: 0 2.4rem;
+		margin: 0 24px;
 	}
 }
 
 /* Desktop (Large) */
 @media (min-width: 1200px) {
 	.content {
-		gap: 94.4rem;
+		gap: 900px;
 		justify-content: space-evenly;
 	}
 }
