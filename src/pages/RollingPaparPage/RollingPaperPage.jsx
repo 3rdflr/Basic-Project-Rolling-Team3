@@ -83,8 +83,8 @@ const RollingPaperPage = () => {
 
 	return (
 		<div>
+			{screenSize !== 'sm' && <Header isForm={true} />}
 			<header className={styles.header}>
-				{screenSize !== 'sm' && <Header />}
 				<RecipientHeader
 					messageCount={messageCount}
 					recentMessages={recentMessages}

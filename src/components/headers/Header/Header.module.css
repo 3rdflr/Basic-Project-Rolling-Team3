@@ -10,6 +10,21 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 2px;
+	margin: 20px;
 	height: 64px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+	.content {
+		margin: 0 24px;
+	}
+}
+
+/* Desktop (Large) */
+@media (min-width: 1200px) {
+	.content {
+		gap: 944px;
+		justify-content: space-evenly;
+	}
 }
