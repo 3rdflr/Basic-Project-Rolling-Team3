@@ -31,16 +31,15 @@ const RecipientHeader = ({
 	return (
 		<div className={styles.header}>
 			<h1 className={styles.recipient}>To. {name}</h1>
+			{screenSize == 'lg' && (
+				<div className={styles.authorStatus}>
+					<ProfileImg count={messageCount} data={recentMessages} />
+					<span>
+						<span className={styles.authorStatusCount}>{messageCount}</span>명이 작성했어요!
+					</span>
+				</div>
+			)}
 			<div className={styles.headerItems} ref={dropdownRef}>
-				{screenSize == 'lg' && (
-					<div className={styles.authorStatus}>
-						<ProfileImg count={messageCount} data={recentMessages} />
-						<span>
-							<span className={styles.authorStatusCount}>{messageCount}</span>명이 작성했어요!
-						</span>
-					</div>
-				)}
-
 				<BadgeList
 					topReactions={topReactions}
 					allReactions={allReactions}
