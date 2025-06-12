@@ -46,7 +46,7 @@ const MessageCardModal = ({ message, onClick, onClose }) => {
 					className={styles.reactQuillBubble}
 				/>
 			</div>
-			<Button size="small" onClick={onClose} className={styles.modalButton}>
+			<Button variant="small" onClick={onClose} className={styles.modalButton}>
 				확인
 			</Button>
 		</div>

@@ -32,6 +32,9 @@
 	width: 56px;
 	height: 56px;
 	border-radius: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url('/ProfileIcon.svg');
 }
 
 .senderInfo {
